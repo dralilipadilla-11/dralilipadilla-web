@@ -1,0 +1,379 @@
+/* =============================================================
+   Riviera Sleep — supplementary styles
+   Extends styles.css, does not duplicate it.
+
+   THEME OVERRIDE: Dark Navy + Gold + Fraunces/Plus Jakarta Sans
+   ============================================================= */
+
+/* ── 0. Tema oscuro — override de tokens ────────────────────── */
+:root {
+  --bg:        #071e30;
+  --bg-2:      #0a2540;
+  --bg-card:   #0d2d4a;
+  --bg-card-2: #112f4e;
+  --teal:      #00a8a8;
+  --cyan:      #3cd2dd;
+  --accent:    #C9A060;   /* dorado */
+  --cream:     #e8f0f5;
+  --cream-2:   #b8d0e0;
+  --cream-3:   #7a9ab0;
+  --line:      rgba(0,168,168,.15);
+  --line-soft: rgba(232,240,245,.08);
+  --serif:     "Fraunces", Georgia, serif;
+  --sans:      "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Body bg + text */
+body { background: var(--bg); color: var(--cream); }
+
+/* Nav scrolled → dark */
+.nav.is-scrolled { background: rgba(7,30,48,.88) !important; }
+.nav-logo-name,
+.nav.is-scrolled .nav-logo-name { color: var(--cream) !important; }
+.nav-link,
+.nav.is-scrolled .nav-link { color: var(--cream-2) !important; }
+.nav-link:hover,
+.nav.is-scrolled .nav-link:hover { color: var(--cream) !important; }
+.nav-toggle span,
+.nav.is-scrolled .nav-toggle span { background: var(--cream) !important; }
+
+/* Mobile nav → dark */
+.nav-mobile { background: rgba(7,30,48,.97) !important; }
+.nav-mobile-link { color: var(--cream-2) !important; }
+
+/* btn-ghost → light border on dark bg */
+.btn-ghost {
+  color: var(--cream) !important;
+  border-color: rgba(232,240,245,.25) !important;
+}
+.btn-ghost:hover {
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  box-shadow: 0 0 0 1px var(--teal) !important;
+}
+
+/* Hero text: already light — no override needed */
+.hero .btn-ghost {
+  color: #e8f0f5 !important;
+  border-color: rgba(232,240,245,.28) !important;
+}
+
+/* Card hover shadows → dark */
+.servicio-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,.3), 0 0 0 1px rgba(0,168,168,.2) !important;
+  border-color: rgba(0,168,168,.3) !important;
+}
+.audiencia-card:hover {
+  border-color: rgba(0,168,168,.3) !important;
+}
+
+/* Phone mockup → dark shadow */
+.respiragym-phone {
+  box-shadow: 0 0 0 8px rgba(0,168,168,.06), 0 32px 64px rgba(0,0,0,.4) !important;
+}
+
+/* em highlights → dorado */
+.section-title em { color: var(--accent) !important; }
+.hero-title em    { color: var(--accent) !important; }
+
+/* ── Intro split ─────────────────────────────────────────── */
+.riv-intro { background: var(--bg-2); }
+
+.riv-intro-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: start;
+}
+@media (min-width: 720px) {
+  .riv-intro-inner { grid-template-columns: 1.4fr 1fr; align-items: center; }
+}
+
+.riv-intro-text { display: flex; flex-direction: column; gap: .9rem; }
+.riv-intro-text p {
+  font-size: clamp(.9rem, 1.3vw, 1rem);
+  color: var(--cream-2);
+  max-width: 52ch;
+  line-height: 1.75;
+}
+
+.riv-intro-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.riv-stat {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--teal);
+}
+.riv-stat .stat-num { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.riv-stat .stat-label { color: var(--cream-3); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ── Phases ──────────────────────────────────────────────── */
+.riv-phases { background: var(--bg); }
+
+.riv-phases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 720px) {
+  .riv-phases-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.riv-phase {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s var(--ease-out);
+}
+@media (hover: hover) {
+  .riv-phase:hover {
+    border-color: rgba(0,168,168,.35);
+    transform: translateY(-4px);
+  }
+}
+.riv-phase::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--cyan));
+}
+
+.riv-phase-num {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(0,168,168,.18);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -.02em;
+}
+
+.riv-phase-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: .3rem;
+}
+
+.riv-phase-sub {
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.25rem;
+}
+
+.riv-phase-list {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.riv-phase-list li {
+  font-size: .875rem;
+  color: var(--cream-2);
+  line-height: 1.55;
+  display: flex;
+  align-items: baseline;
+  gap: .65rem;
+}
+.riv-phase-list li::before {
+  content: "◎";
+  color: var(--teal);
+  font-size: .65rem;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+
+/* ── Includes ────────────────────────────────────────────── */
+.riv-includes { background: var(--bg-2); }
+
+.riv-includes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1.25rem;
+}
+
+.riv-include-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: border-color .3s, transform .3s var(--ease-out);
+}
+@media (hover: hover) {
+  .riv-include-card:hover {
+    border-color: rgba(0,168,168,.3);
+    transform: translateY(-3px);
+  }
+}
+
+.riv-include-icon {
+  font-size: 1.5rem;
+  color: var(--teal);
+}
+.riv-include-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+.riv-include-card p {
+  font-size: .875rem;
+  color: var(--cream-2);
+  line-height: 1.65;
+}
+
+/* ── Team ────────────────────────────────────────────────── */
+.riv-team { background: var(--bg); }
+
+.riv-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 720px) {
+  .riv-team-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.riv-team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.riv-team-photo {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.riv-team-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform .6s var(--ease-out);
+}
+@media (hover: hover) {
+  .riv-team-card:hover .riv-team-photo img { transform: scale(1.04); }
+}
+
+.riv-team-info { padding: 1.75rem; }
+
+.riv-team-role {
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: .4rem;
+}
+
+.riv-team-name {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: .75rem;
+}
+
+.riv-team-bio {
+  font-size: .875rem;
+  color: var(--cream-2);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.riv-team-creds {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+.riv-team-creds li {
+  font-size: .78rem;
+  color: var(--cream-3);
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+.riv-team-creds li::before {
+  content: "·";
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.riv-team-creds em { font-style: italic; color: var(--cream-2); }
+
+/* ── For whom ────────────────────────────────────────────── */
+.riv-forwho { background: var(--bg-2); }
+
+.riv-forwho-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1.25rem;
+}
+
+.riv-forwho-item {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: border-color .3s;
+}
+@media (hover: hover) {
+  .riv-forwho-item:hover { border-color: rgba(0,168,168,.3); }
+}
+
+.riv-forwho-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(0,168,168,.3);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.riv-forwho-item p {
+  font-size: .9rem;
+  color: var(--cream-2);
+  line-height: 1.65;
+  padding-top: .3rem;
+}
+
+/* ── Pricing ─────────────────────────────────────────────── */
+.riv-pricing { background: var(--bg); }
+
+.riv-pricing-inner {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.riv-pricing-inner .section-title { margin-bottom: 0; }
+.riv-pricing-inner p {
+  font-size: clamp(.9rem, 1.3vw, 1rem);
+  color: var(--cream-2);
+  max-width: 58ch;
+  line-height: 1.75;
+}
+.riv-pricing-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
