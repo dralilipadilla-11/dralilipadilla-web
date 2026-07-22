@@ -14,7 +14,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Facebook / Meta domain verification -->
   <meta name="facebook-domain-verification" content="wn9qoemr1kfc3qsg8as5ascks36q9n" />
 
- 
+  <!-- Google tag (gtag.js) — Google Ads AW-925246946.
+       Convive con GTM: GTM no define gtag(), y el script de conversión
+       por clic del final de esta página lo necesita. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-925246946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-925246946');
+  </script>
 
   <meta name="description" content="Dra. Lili Padilla — Otorrinolaringóloga y Especialista en Medicina del Sueño en Cancún. Diagnóstico y tratamiento de ronquido, apnea del sueño, terapia miofuncional y cirugía de vía aérea.">
   <meta property="og:title" content="Dra. Lili Padilla · Medicina del Sueño · Cancún">
@@ -314,6 +323,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
             <div class="sobre-mi-actions reveal" data-reveal>
               <a class="btn btn-primary" href="https://calendly.com/dralilianapadilla/" target="_blank" rel="noopener">Agendar con la Dra. Lili</a>
+              <a class="btn btn-ghost" href="assets/CV_Dra_Liliana_Padilla_Islas.pdf" target="_blank" rel="noopener">Ver currículum completo (PDF)</a>
             </div>
           </div>
         </div>
@@ -521,6 +531,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', {'send_to': 'AW-925246946/H44aCJax5cocEOLLmLkD'});
         }
+        // Disponible en GTM por si prefieres manejar la conversión desde ahí.
+        // Si creas un tag de conversión con este evento, quita el gtag de arriba
+        // para no contar doble.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({'event': 'contacto_click'});
       }
       document.addEventListener('click', function(e){
         var a = e.target && e.target.closest ? e.target.closest('a') : null;

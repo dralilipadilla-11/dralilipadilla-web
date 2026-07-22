@@ -871,7 +871,12 @@ ul, ol { list-style: none; }
   border-radius: 100px;
 }
 
-.sobre-mi-actions { margin-top: 1.5rem; }
+.sobre-mi-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
 
 /* =============================================================
    13. Equipo
