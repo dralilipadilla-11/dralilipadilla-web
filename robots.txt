@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# /gracias se excluye con <meta name="robots" content="noindex"> en la propia
+# página — no se bloquea aquí, porque Google necesita rastrearla para ver la etiqueta.
+
+Sitemap: https://dralilipadilla.com/sitemap.xml
