@@ -177,7 +177,7 @@ table.comparativa tbody tr:last-child th,table.comparativa tbody tr:last-child t
 .hotel-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);}
 .hotel-gallery figure:hover img{transform:scale(1.06);}
 .hotel-gallery .big{grid-row:span 2;}
-.hotel-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;}
+.hotel-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1rem;margin-top:2.5rem;}
 .hora{background:rgba(255,255,255,.05);border:1px solid rgba(60,210,221,.16);border-radius:16px;padding:1.4rem 1.35rem;transition:all .35s var(--ease);}
 .hora:hover{border-color:var(--cyan);background:rgba(60,210,221,.08);transform:translateY(-3px);}
 .hora-h{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--cyan);font-weight:600;line-height:1;margin-bottom:.5rem;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;}
@@ -352,7 +352,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="estudio-desc">El estándar de oro en medicina del sueño. Registra la noche completa: no solo si respiras bien, también cómo se organiza tu sueño hora por hora.</p>
           <ul class="estudio-list">
             <li><strong>Qué mide:</strong> actividad cerebral, fases del sueño, movimientos oculares y musculares, respiración, oxígeno y ritmo cardíaco</li>
-            <li><strong>Cómo:</strong> colocación del equipo en Hospital Galenia y la noche en el hotel, a unos pasos</li>
+            <li><strong>Cómo:</strong> llegas al hotel desde las 3 pm y la colocación es a las 7 pm, a unos pasos</li>
             <li><strong>Para quién:</strong> casos que requieren ver la arquitectura completa del sueño</li>
             <li><strong>Resultados:</strong> interpretación especializada, no automatizada</li>
           </ul>
@@ -453,7 +453,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="section-inner">
     <p class="section-kicker reveal">Dónde pasas la noche</p>
     <h2 class="section-title reveal" data-delay="1">Tu estudio, en un hotel.<br><em>No en un laboratorio.</em></h2>
-    <p class="hotel-lead reveal" data-delay="2">Te colocamos el equipo en el consultorio y pasas caminando al Four Points by Sheraton Cancún, a unos pasos. Duermes en una habitación de hotel mientras el equipo registra tu noche — porque para medir bien cómo duermes, primero necesitas poder dormir.</p>
+    <p class="hotel-lead reveal" data-delay="2">Tu noche empieza desde las 3 de la tarde: llegas al Four Points by Sheraton Cancún, haces check-in y te instalas sin prisa. A las 7 pm caminas unos pasos hasta el consultorio para la colocación del equipo y regresas a tu habitación a dormir — porque para medir bien cómo duermes, primero necesitas poder dormir.</p>
 
     <div class="hotel-gallery reveal">
       <figure class="big"><img src="assets/img/estudios/fourpoints-habitacion.jpg" alt="Habitación del Four Points by Sheraton Cancún" loading="lazy" decoding="async"></figure>
@@ -463,18 +463,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="hotel-timeline">
       <div class="hora reveal">
-        <p class="hora-h">7:00 pm</p>
-        <p>Llegas a Hospital Galenia, consultorio 401. Ahí se coloca y se verifica todo el equipo.</p>
+        <p class="hora-h">3:00 pm</p>
+        <p>Llegas al Four Points y haces check-in. Te instalas, te bañas y te preparas para el registro.</p>
       </div>
       <div class="hora reveal" data-delay="1">
-        <p class="hora-h">A unos pasos</p>
-        <p>Pasas caminando al Four Points by Sheraton. Sin traslados largos ni ambulancias.</p>
+        <p class="hora-h">Cena temprano</p>
+        <p>Cenas con anticipación, antes de la colocación. Sin prisas y sin llegar pesado a la noche.</p>
       </div>
       <div class="hora reveal" data-delay="2">
-        <p class="hora-h">Tu noche</p>
-        <p>Duermes en tu habitación. El equipo registra sin que tengas que hacer nada.</p>
+        <p class="hora-h">7:00 pm</p>
+        <p>Caminas unos pasos al Hospital Galenia, consultorio 401. Ahí se coloca y se verifica todo el equipo.</p>
       </div>
       <div class="hora reveal" data-delay="3">
+        <p class="hora-h">Tu noche</p>
+        <p>Regresas a tu habitación y duermes. El equipo registra sin que tengas que hacer nada.</p>
+      </div>
+      <div class="hora reveal" data-delay="4">
         <p class="hora-h">Por la mañana</p>
         <p>Se retira el equipo en el hotel o en el consultorio, y sigues con tu día.</p>
       </div>
@@ -504,7 +508,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="paso-item reveal">
         <p class="paso-num">Paso 03</p>
         <h3>Realización</h3>
-        <p>En casa con el ApneaLink, o con la colocación en el consultorio y la noche en el Four Points. Recibes indicaciones claras de preparación por anticipado.</p>
+        <p>En casa con el ApneaLink, o con la tarde en el Four Points y la colocación a las 7 pm en el consultorio. Recibes indicaciones claras de preparación por anticipado.</p>
       </div>
       <div class="paso-item reveal">
         <p class="paso-num">Paso 04</p>
@@ -551,8 +555,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="faq-a">Porque para medir bien cómo duermes, necesitas dormir cómodo. Una habitación de hotel es un ambiente mucho más parecido a tu noche real que un cuarto de hospital.</p>
       </details>
       <details class="faq-item reveal">
-        <summary>¿A qué hora tengo que llegar?</summary>
-        <p class="faq-a">La colocación del equipo es a las 7:00 pm en Hospital Galenia, consultorio 401. De ahí pasas caminando al hotel. Por la mañana se retira el equipo y continúas con tu día.</p>
+        <summary>¿A qué hora empieza el estudio?</summary>
+        <p class="faq-a">Tu llegada al Four Points es a partir de las 3:00 pm: check-in, baño y preparación para el registro, y cena con anticipación. A las 7:00 pm caminas al Hospital Galenia, consultorio 401, donde se coloca el equipo. Regresas a tu habitación a dormir y por la mañana se retira.</p>
       </details>
       <details class="faq-item reveal">
         <summary>¿Qué pasa después del estudio?</summary>
@@ -576,7 +580,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="btn btn-primary" href="https://calendly.com/dralilianapadilla/" target="_blank" rel="noopener">Agendar valoración con la Dra. Lili</a>
       <a class="btn btn-ghost" href="https://wa.me/529981516161?text=Hola%20Dra.%20Lili%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20estudio%20de%20sue%C3%B1o" target="_blank" rel="noopener">WhatsApp</a>
     </div>
-    <p class="cta-note reveal" data-delay="4">Videoconsulta o presencial en Cancún · Respuesta el mismo día</p>
+    <p class="cta-note reveal" data-delay="4">Videoconsulta o presencial en Cancún</p>
   </div>
 </section>
 
