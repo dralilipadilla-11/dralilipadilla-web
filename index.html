@@ -25,13 +25,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gtag('config', 'AW-925246946');
   </script>
 
-  <meta name="description" content="Dra. Lili Padilla — Otorrinolaringóloga y Especialista en Medicina del Sueño en Cancún. Diagnóstico y tratamiento de ronquido, apnea del sueño, terapia miofuncional y cirugía de vía aérea.">
-  <meta property="og:title" content="Dra. Lili Padilla · Medicina del Sueño · Cancún">
+  <meta name="description" content="Otorrinolaringóloga y especialista en Medicina del Sueño en Cancún. Diagnóstico y tratamiento de apnea del sueño, ronquido y cirugía de vía aérea.">
+  <meta property="og:title" content="Apnea del Sueño y Ronquido en Cancún · Dra. Lili Padilla">
   <meta property="og:description" content="Duerme bien. Vive mejor. Especialista en Medicina del Sueño y Otorrinolaringología en Cancún, México.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dralilipadilla.com/">
+  <meta property="og:image" content="https://dralilipadilla.com/assets/img/hero.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://dralilipadilla.com/">
-  <title>Dra. Lili Padilla · Medicina del Sueño · Cancún</title>
+  <link rel="alternate" hreflang="es-MX" href="https://dralilipadilla.com/">
+  <link rel="alternate" hreflang="en" href="https://dralilipadilla.com/riviera-sleep">
+  <link rel="alternate" hreflang="x-default" href="https://dralilipadilla.com/">
+  <title>Apnea del Sueño y Ronquido en Cancún · Dra. Lili Padilla</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,6 +51,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- View transitions for multi-page -->
   <style>@view-transition { navigation: auto; }</style>
+
+  <!-- Datos estructurados: la entidad principal vive aquí; las subpáginas la referencian por @id -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://dralilipadilla.com/#website",
+        "url": "https://dralilipadilla.com/",
+        "name": "Dra. Lili Padilla · Medicina del Sueño Cancún",
+        "inLanguage": "es-MX",
+        "publisher": { "@id": "https://dralilipadilla.com/#clinica" }
+      },
+      {
+        "@type": "MedicalClinic",
+        "@id": "https://dralilipadilla.com/#clinica",
+        "name": "Dra. Lili Padilla · Medicina del Sueño y Otorrinolaringología",
+        "url": "https://dralilipadilla.com/",
+        "image": "https://dralilipadilla.com/assets/img/hero.jpg",
+        "telephone": "+52-998-151-6161",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hospital Galenia Fase II, Consultorio 401-A",
+          "addressLocality": "Cancún",
+          "addressRegion": "Quintana Roo",
+          "addressCountry": "MX"
+        },
+        "medicalSpecialty": ["Otolaryngologic", "PulmonaryMedicine"],
+        "availableService": [
+          { "@type": "MedicalTest", "name": "Polisomnografía", "url": "https://dralilipadilla.com/estudios-de-sueno" },
+          { "@type": "MedicalTest", "name": "Poligrafía respiratoria", "url": "https://dralilipadilla.com/estudios-de-sueno" },
+          { "@type": "MedicalProcedure", "name": "Cirugía de vía aérea" },
+          { "@type": "MedicalTherapy", "name": "Terapia miofuncional" }
+        ],
+        "areaServed": { "@type": "City", "name": "Cancún" },
+        "employee": [
+          { "@id": "https://dralilipadilla.com/#dra-lili" },
+          { "@id": "https://dralilipadilla.com/#dr-jorge" }
+        ]
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://dralilipadilla.com/#dra-lili",
+        "name": "Dra. Liliana Padilla Islas",
+        "honorificPrefix": "Dra.",
+        "jobTitle": "Otorrinolaringóloga · Especialista en Medicina Integral del Sueño",
+        "url": "https://dralilipadilla.com/",
+        "image": "https://dralilipadilla.com/assets/img/about.jpg",
+        "medicalSpecialty": "Otolaryngologic",
+        "worksFor": { "@id": "https://dralilipadilla.com/#clinica" },
+        "identifier": [
+          { "@type": "PropertyValue", "name": "Cédula Profesional (UAG)", "value": "7057757" },
+          { "@type": "PropertyValue", "name": "Cédula de Especialidad (UNAM)", "value": "9181490" }
+        ],
+        "sameAs": [
+          "https://instagram.com/dra.lilipadilla",
+          "https://tiktok.com/@dra.lilipadilla",
+          "https://youtube.com/@dra.lilipadilla",
+          "https://hospitalgalenia.com/directorio/dra-liliana-padilla-islas-3/"
+        ]
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://dralilipadilla.com/#dr-jorge",
+        "name": "Dr. Jorge Barbachano Torres",
+        "honorificPrefix": "Dr.",
+        "jobTitle": "Otorrinolaringólogo · Cirugía funcional y estética nasal",
+        "image": "https://dralilipadilla.com/assets/img/drjorge.jpg",
+        "medicalSpecialty": "Otolaryngologic",
+        "worksFor": { "@id": "https://dralilipadilla.com/#clinica" },
+        "identifier": [
+          { "@type": "PropertyValue", "name": "Cédula Profesional", "value": "6151159" },
+          { "@type": "PropertyValue", "name": "Cédula de Especialidad", "value": "8693151" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->

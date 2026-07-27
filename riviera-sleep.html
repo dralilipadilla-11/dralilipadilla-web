@@ -13,12 +13,18 @@
     gtag('config', 'AW-925246946');
   </script>
 
-  <meta name="description" content="Riviera Sleep Program — Dra. Lili Padilla. A three-phase sleep medicine program in Cancún, Mexico: remote pre-screening, in-person evaluation and treatment, remote follow-up. S·E·R: Sleep, Equilibrium, Respiration.">
+  <meta name="description" content="Sleep medicine in Cancún, Mexico: sleep study, ENT evaluation and airway surgery in one three-phase program. Consultation with Dra. Lili Padilla — $100 USD.">
   <meta property="og:title" content="Riviera Sleep Program · Dra. Lili Padilla · Cancún">
   <meta property="og:description" content="Sleep better. Starting here. World-class sleep medicine, airway surgery and respiratory training in Cancún — as a team.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dralilipadilla.com/riviera-sleep">
+  <meta property="og:image" content="https://dralilipadilla.com/assets/img/cirugia.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://dralilipadilla.com/riviera-sleep">
+  <link rel="alternate" hreflang="en" href="https://dralilipadilla.com/riviera-sleep">
+  <link rel="alternate" hreflang="es-MX" href="https://dralilipadilla.com/">
+  <link rel="alternate" hreflang="x-default" href="https://dralilipadilla.com/">
   <title>Riviera Sleep Program · Dra. Lili Padilla · Cancún</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +36,49 @@
   <link rel="stylesheet" href="riviera.css?v=20260528c">
 
   <style>@view-transition { navigation: auto; }</style>
+
+  <!-- Structured data — references the clinic entity declared on the Spanish home -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://dralilipadilla.com/riviera-sleep#webpage",
+        "url": "https://dralilipadilla.com/riviera-sleep",
+        "name": "Riviera Sleep Program · Dra. Lili Padilla · Cancún",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://dralilipadilla.com/#website" },
+        "about": { "@id": "https://dralilipadilla.com/#riviera-sleep" }
+      },
+      {
+        "@type": "MedicalTherapy",
+        "@id": "https://dralilipadilla.com/#riviera-sleep",
+        "name": "Riviera Sleep Program",
+        "description": "A three-phase sleep medicine program for international patients in Cancún: remote pre-screening, in-person evaluation and treatment, and remote follow-up.",
+        "url": "https://dralilipadilla.com/riviera-sleep",
+        "provider": { "@id": "https://dralilipadilla.com/#clinica" },
+        "relevantSpecialty": "Otolaryngologic",
+        "availableService": [
+          { "@type": "MedicalTest", "name": "Polysomnography" },
+          { "@type": "MedicalProcedure", "name": "Airway surgery" },
+          { "@type": "MedicalTherapy", "name": "Myofunctional therapy" }
+        ]
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://dralilipadilla.com/riviera-sleep#consultation",
+        "name": "Pre-screening video consultation (45 min)",
+        "price": "100",
+        "priceCurrency": "USD",
+        "url": "https://dralilipadilla.com/riviera-sleep",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@id": "https://dralilipadilla.com/#riviera-sleep" },
+        "seller": { "@id": "https://dralilipadilla.com/#clinica" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
