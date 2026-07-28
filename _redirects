@@ -1,0 +1,14 @@
+# Una sola URL por pagina. Sin esto, Netlify sirve /riviera-sleep y
+# /riviera-sleep.html con 200 las dos, y Google las trata como duplicadas
+# ("Duplicada: el usuario no ha indicado ninguna version canonica").
+#
+# El ! es necesario: sin el, Netlify da prioridad al archivo que si existe
+# en esa ruta y la regla nunca se aplica.
+
+/index.html               /                     301!
+/riviera-sleep.html       /riviera-sleep        301!
+/estudios-de-sueno.html   /estudios-de-sueno    301!
+/protocolo-ser.html       /protocolo-ser        301!
+/links.html               /links                301!
+/privacidad.html          /privacidad           301!
+/gracias.html             /gracias              301!
