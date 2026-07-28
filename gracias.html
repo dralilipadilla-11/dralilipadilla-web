@@ -26,6 +26,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-925246946');
+
+  // Cita agendada. Esta pagina solo se carga cuando Calendly redirige
+  // despues de confirmar, asi que llegar aqui ES la conversion real —
+  // a diferencia del clic en Calendly/WhatsApp, que solo es intencion.
+  //
+  // El evento va al dataLayer para que GTM (GTM-N4T5R7VT) lo dispare
+  // hacia Google Ads. Si prefieres saltarte GTM, sustituye esta linea por
+  // gtag('event', 'conversion', {'send_to': 'AW-925246946/ETIQUETA'});
+  // con la etiqueta de la accion de conversion "Cita agendada".
+  dataLayer.push({ 'event': 'cita_agendada' });
 </script>
 
 <style>
