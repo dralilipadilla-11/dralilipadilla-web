@@ -496,9 +496,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     (function(){
       function fireConversion(){
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {'send_to': 'AW-925246946/H44aCJax5cocEOLLmLkD'});
-        }
+        // El gtag directo se quitó a propósito: GTM ya tiene sus propios tags de
+        // conversión de Ads para clic en Calendly y en WhatsApp. Tenerlo aquí
+        // además contaba el mismo clic dos veces, en dos acciones distintas.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({'event': 'contacto_click'});
       }
       document.addEventListener('click', function(e){
         var a = e.target && e.target.closest ? e.target.closest('a') : null;

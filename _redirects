@@ -5,6 +5,10 @@
 # El ! es necesario: sin el, Netlify da prioridad al archivo que si existe
 # en esa ruta y la regla nunca se aplica.
 
+# El subdominio por defecto de Netlify servia el sitio completo con 200. El
+# canonical ya apuntaba al dominio real, pero es mas limpio cerrarlo del todo.
+https://loquacious-syrniki-d4e257.netlify.app/*  https://dralilipadilla.com/:splat  301!
+
 /index.html               /                     301!
 /riviera-sleep.html       /riviera-sleep        301!
 /estudios-de-sueno.html   /estudios-de-sueno    301!
