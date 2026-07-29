@@ -744,10 +744,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Google Ads — conversión al contactar (Calendly / WhatsApp) -->
 <script>
   (function(){
+    // Solo dataLayer. La llamada directa a gtag que habia aqui nunca corria:
+    // esta pagina no carga gtag.js, asi que el typeof siempre daba false y
+    // la conversion se perdia en silencio. GTM si esta en todas las paginas.
     function fireConversion(){
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {'send_to': 'AW-925246946/H44aCJax5cocEOLLmLkD'});
-      }
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({'event': 'contacto_click'});
     }
