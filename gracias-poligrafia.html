@@ -11,28 +11,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cita confirmada · Dra. Lili Padilla</title>
-<meta name="description" content="Tu cita con la Dra. Lili Padilla está confirmada. Aquí encuentras cómo llegar al consultorio en Hospital Galenia, Cancún, y qué llevar el día de tu consulta.">
+<title>Poligrafía agendada · Dra. Lili Padilla</title>
+<meta name="description" content="Tu poligrafía a domicilio está agendada. Aquí están las indicaciones de preparación, qué llevar el día que recoges el equipo y cómo se entregan tus resultados.">
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://dralilipadilla.com/gracias">
+<link rel="canonical" href="https://dralilipadilla.com/gracias-poligrafia">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-<!-- Google tag (gtag.js) — Google Ads AW-925246946 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-925246946"></script>
+<!-- Conversion: "Estudio agendado - poligrafia". Esta pagina solo se carga
+     cuando Calendly redirige despues de confirmar la poligrafia, asi que
+     llegar aqui ES la conversion real.
+
+     Tiene que vivir en dralilipadilla.com y no en documentos-ser: la cookie
+     con el gclid del anuncio se guarda en este dominio, y en otro no se lee.
+
+     El evento va SOLO al dataLayer, una vez. GTM (GTM-N4T5R7VT) lo dispara
+     hacia Google Ads con la etiqueta de su propia accion de conversion.
+     NO agregar aqui un gtag('event','conversion',...) — se contaria doble. -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-925246946');
-
-  // Cita agendada. Esta pagina solo se carga cuando Calendly redirige
-  // despues de confirmar, asi que llegar aqui ES la conversion real —
-  // a diferencia del clic en Calendly/WhatsApp, que solo es intencion.
-  //
-  // El push al dataLayer y el disparo de la conversion estan al final del
-  // <body>, una sola vez. Antes estaban tambien aqui: se contaba doble.
+  window.dataLayer.push({
+    'event': 'estudio_agendado',
+    'estudio_tipo': 'poligrafia',
+    'valor_estudio': 5000,
+    'moneda': 'MXN'
+  });
 </script>
 
 <style>
@@ -158,7 +162,7 @@ a:hover { text-decoration: underline; }
 }
 .highlight p:last-child { margin-bottom: 0; }
 
-/* RUTA — pasos para llegar */
+/* RUTA — pasos */
 .ruta { counter-reset: paso; list-style: none; margin: 0 0 1.5rem; padding: 0; }
 .ruta li {
     counter-increment: paso;
@@ -186,8 +190,17 @@ a:hover { text-decoration: underline; }
     justify-content: center;
 }
 .ruta strong { color: var(--navy); }
+.ruta-cuando {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 0.15rem;
+}
 
-/* TARJETA DE UBICACIÓN */
+/* TARJETA */
 .card {
     background: var(--sand);
     border-radius: 12px;
@@ -197,6 +210,20 @@ a:hover { text-decoration: underline; }
 .card p { margin-bottom: 0.4rem; }
 .card p:last-child { margin-bottom: 0; }
 .card-dir { font-weight: 600; color: var(--navy); }
+
+/* PAGO */
+.pago { list-style: none; margin: 0 0 1rem; padding: 0; }
+.pago li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(0,168,168,0.15);
+    font-size: 0.97rem;
+}
+.pago li:last-child { border-bottom: none; }
+.pago-monto { font-weight: 600; color: var(--navy); white-space: nowrap; }
+.pago-nota { display: block; font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
 
 /* BOTONES */
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
@@ -250,6 +277,7 @@ footer a:hover { text-decoration: underline; }
     .hero { padding: 3rem 1.25rem 2.5rem; }
     .content { padding: 2.5rem 1.25rem 3.5rem; }
     .btn { width: 100%; text-align: center; }
+    .pago li { flex-direction: column; gap: 0.2rem; }
 }
 </style>
 </head>
@@ -268,68 +296,123 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-check" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
     </div>
-    <p class="hero-label">Cita confirmada</p>
-    <h1>Nos vemos pronto</h1>
-    <p class="hero-lead">Tu cita quedó agendada. Recibirás la confirmación por correo con la fecha, la hora y el enlace o la dirección según la modalidad que elegiste.</p>
+    <p class="hero-label">Poligrafía agendada</p>
+    <h1>Tu noche de estudio está reservada</h1>
+    <p class="hero-lead">Recibirás la confirmación por correo con la fecha. Esta página tiene todo lo demás: cómo prepararte, qué llevar y cómo se entregan tus resultados.</p>
 </div>
 
 <div class="content">
 
     <div class="section">
         <div class="highlight">
-            <p><strong>Guarda esta página.</strong> Aquí está todo lo que necesitas para el día de tu consulta: cómo llegar, qué llevar y cómo avisarnos si algo cambia.</p>
+            <p><strong>Guarda esta página.</strong> La hora que aparece en tu confirmación es referencial — lo que reservaste es <strong>la noche de tu estudio</strong>. El equipo lo recoges ese mismo día entre las 4:00 y las 8:00 pm.</p>
         </div>
     </div>
 
     <div class="section">
-        <h2>Dónde es la consulta presencial</h2>
+        <h2>Antes que nada: tus dos pasos</h2>
+        <p>Lee tus indicaciones completas y firma tu consentimiento en línea. El consentimiento es requisito para poder hacer el registro, y se firma desde el celular en un par de minutos.</p>
+        <div class="btn-row">
+            <a class="btn btn-primary" href="https://documentos-ser.netlify.app/poligrafia" target="_blank" rel="noopener">Mis indicaciones y consentimiento →</a>
+        </div>
+        <p>Léelas con calma un día antes, no la misma noche del estudio.</p>
+    </div>
+
+    <div class="section">
+        <h2>Cómo funciona tu estudio</h2>
+        <ol class="ruta">
+            <li>
+                <span class="ruta-cuando">Día del estudio · 4:00 a 8:00 pm</span>
+                <strong>Recoges tu equipo</strong> en el Consultorio 401-A. Te entregamos las indicaciones de colocación paso a paso y aquí se cubre el pago.
+            </li>
+            <li>
+                <span class="ruta-cuando">Esa noche</span>
+                <strong>Duermes en tu casa</strong> con el equipo puesto. En tu cama, a tu hora, con tu rutina normal — de eso se trata.
+            </li>
+            <li>
+                <span class="ruta-cuando">Mañana siguiente hábil · 9:00 am a 12:00 pm</span>
+                <strong>Devuelves el equipo</strong> en el consultorio y se te regresa tu depósito en garantía.
+            </li>
+            <li>
+                <span class="ruta-cuando">Máximo 5 días</span>
+                <strong>Recibes tus resultados</strong> con interpretación clínica de especialista en medicina del sueño.
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Cómo prepararte</h2>
+        <p>La poligrafía mide tu noche real. Entre más normal sea tu día, más útil es el estudio.</p>
+        <ul>
+            <li><strong>Báñate antes de colocarte el equipo</strong> y no apliques crema, aceite ni loción en pecho, abdomen ni manos: los sensores necesitan contacto directo con la piel.</li>
+            <li><strong>Retira el esmalte de las uñas</strong>, al menos del dedo índice de una mano. El sensor de oxígeno lee a través de la uña y el esmalte lo bloquea.</li>
+            <li><strong>Cena ligero y con tiempo</strong>, no justo antes de dormir.</li>
+            <li><strong>Sin alcohol el día del estudio</strong>, y sin café ni bebidas con cafeína después del mediodía. Los dos alteran la respiración y el sueño, y falsean el resultado.</li>
+            <li><strong>Evita la siesta</strong> ese día, para que llegues a la noche con sueño normal.</li>
+            <li><strong>Toma tus medicamentos como siempre</strong>, salvo que se te haya indicado otra cosa en tu valoración. No suspendas nada por tu cuenta.</li>
+            <li><strong>Acuéstate a tu hora habitual.</strong> No adelantes ni retrases tu horario por el estudio.</li>
+            <li>Si usas CPAP, <strong>pregúntanos antes</strong> si esa noche lo usas o no. Depende de qué estemos buscando en tu caso.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Qué llevar cuando recojas el equipo</h2>
+        <ul>
+            <li>Una identificación oficial.</li>
+            <li>El pago del estudio y el depósito en garantía (ver abajo).</li>
+            <li>La lista de los medicamentos y suplementos que tomas, con dosis.</li>
+            <li>Estudios previos si los tienes: polisomnografías, oximetrías, laboratorios, tomografías.</li>
+            <li>Si vienes referid@ por otro médico, su nombre — el reporte también se le comparte.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Tu inversión</h2>
+        <ul class="pago">
+            <li>
+                <span>Estudio de poligrafía<span class="pago-nota">Incluye equipo, indicaciones e interpretación por especialista.</span></span>
+                <span class="pago-monto">$5,000 MXN</span>
+            </li>
+            <li>
+                <span>Depósito en garantía por el equipo<span class="pago-nota">En efectivo. Se te devuelve completo cuando entregas el equipo.</span></span>
+                <span class="pago-monto">$1,500 MXN</span>
+            </li>
+        </ul>
+        <p>Ambos se cubren en el consultorio el día que recoges el equipo. El depósito es exclusivamente en efectivo.</p>
+    </div>
+
+    <div class="section">
+        <h2>Dónde recoges y entregas</h2>
         <div class="card">
             <p class="card-dir">Hospital Galenia · Fase II</p>
             <p>Consultorio 401-A, piso 4</p>
-            <p>Cancún, Quintana Roo</p>
+            <p>Av. Tulum, SM 12 · Cancún, Quintana Roo</p>
         </div>
-        <div class="btn-row">
-            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hospital%20Galenia%20Canc%C3%BAn" target="_blank" rel="noopener" data-directions>Cómo llegar en Google Maps</a>
-        </div>
-        <p>Si tu cita es por videoconsulta, no necesitas trasladarte: el enlace llega a tu correo junto con la confirmación.</p>
-    </div>
-
-    <div class="section">
-        <h2>Cómo llegar al consultorio, paso a paso</h2>
-        <p>El hospital es grande y la primera vez puede confundir. Sigue esta ruta y llegas directo:</p>
         <ol class="ruta">
             <li>Del estacionamiento, toma el <strong>elevador que sube al lobby</strong>.</li>
             <li>Ya en el lobby, toma el elevador al <strong>piso 4</strong>. Están <strong>frente al Oncology Center</strong>.</li>
             <li>Al salir del elevador, al centro del piso está <strong>Lety, nuestra asistente</strong>. Dale tu nombre y ella nos avisa que ya llegaste.</li>
         </ol>
-    </div>
-
-    <div class="section">
-        <h2>Para aprovechar mejor tu consulta</h2>
-        <ul>
-            <li>Llega unos minutos antes para el registro con Lety.</li>
-            <li>Trae estudios previos si los tienes: polisomnografías, tomografías, análisis de laboratorio.</li>
-            <li>Anota los medicamentos y suplementos que tomas actualmente, con dosis.</li>
-            <li>Si alguien duerme contigo, pregúntale qué ha notado — ronquido, pausas al respirar, movimientos. Esa información vale mucho.</li>
-            <li>Piensa en cómo han sido tus últimas semanas de sueño: a qué hora te acuestas, cuántas veces despiertas, cómo amaneces.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>¿Necesitas cambiar o cancelar?</h2>
-        <p>Sin problema. Puedes reprogramar desde el correo de confirmación de Calendly, o escribirnos directo por WhatsApp y te ayudamos.</p>
         <div class="btn-row">
-            <a class="btn btn-ghost" href="https://wa.me/529981516161?text=Hola%2C%20agend%C3%A9%20una%20cita%20y%20necesito%20cambiarla" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hospital%20Galenia%20Canc%C3%BAn" target="_blank" rel="noopener">Cómo llegar en Google Maps</a>
         </div>
     </div>
 
     <div class="section">
-        <h2>Mientras llega tu cita</h2>
+        <h2>¿Necesitas cambiar o cancelar?</h2>
+        <p>Sin problema, solo avísanos con tiempo: el equipo se aparta para tu noche. Puedes reprogramar desde el correo de confirmación de Calendly, o escribirnos directo por WhatsApp.</p>
+        <div class="btn-row">
+            <a class="btn btn-ghost" href="https://wa.me/529981516161?text=Hola%2C%20agend%C3%A9%20una%20poligraf%C3%ADa%20y%20tengo%20una%20duda" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Mientras llega tu estudio</h2>
         <p>Estos recursos te ayudan a llegar con más contexto sobre tu sueño y tu respiración:</p>
         <div class="recursos">
             <a class="recurso" href="https://quiz-escueladesueno.netlify.app" target="_blank" rel="noopener">
                 <span class="recurso-titulo">Quiz de sueño</span>
-                <span class="recurso-desc">Evalúa tus hábitos en unos minutos y llega con el resultado a la consulta.</span>
+                <span class="recurso-desc">Evalúa tus hábitos en unos minutos y llega con el resultado.</span>
             </a>
             <a class="recurso" href="https://respiragym.netlify.app" target="_blank" rel="noopener">
                 <span class="recurso-titulo">RespiraGym</span>
@@ -343,13 +426,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="recurso-titulo">Escuela de Sueño</span>
                 <span class="recurso-desc">La comunidad donde hablamos de sueño y respiración todos los días.</span>
             </a>
-            <a class="recurso" href="/#servicios">
-                <span class="recurso-titulo">Servicios y Protocolo S·E·R</span>
-                <span class="recurso-desc">Sueño, Equilibrio y Respiración: cómo trabajamos cada caso.</span>
+            <a class="recurso" href="/estudios-de-sueno">
+                <span class="recurso-titulo">Estudios de sueño</span>
+                <span class="recurso-desc">Cómo es el proceso completo, de la duda al diagnóstico.</span>
             </a>
-            <a class="recurso" href="/riviera-sleep">
-                <span class="recurso-titulo">International Program</span>
-                <span class="recurso-desc">For patients traveling to Cancún for sleep care.</span>
+            <a class="recurso" href="/protocolo-ser">
+                <span class="recurso-titulo">Protocolo S·E·R</span>
+                <span class="recurso-desc">Sueño, Equilibrio y Respiración: cómo trabajamos cada caso.</span>
             </a>
         </div>
     </div>
@@ -361,20 +444,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Hospital Galenia Fase II, Consultorio 401-A · <a href="https://wa.me/529981516161" target="_blank" rel="noopener">WhatsApp</a> · <a href="/">dralilipadilla.com</a></p>
     <p>&copy; 2026 Dra. Liliana Padilla Islas · <a href="/privacidad">Aviso de privacidad</a></p>
 </footer>
-
-<!-- Conversión: esta página solo se ve después de agendar, así que la cuenta al cargar.
-     El label AW-925246946/H44aCJax5cocEOLLmLkD es el mismo de "contacto".
-     Si creas en Google Ads una acción de conversión propia para citas agendadas,
-     reemplaza ese valor aquí. No dupliques esta conversión en GTM. -->
-<script>
-  (function(){
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion', {'send_to': 'AW-925246946/H44aCJax5cocEOLLmLkD'});
-    }
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({'event': 'cita_agendada'});
-  })();
-</script>
 
 </body>
 </html>
