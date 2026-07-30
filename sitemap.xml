@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Solo paginas indexables. Quedan fuera a proposito:
+     /privacidad y /gracias* llevan <meta name="robots" content="noindex">, y
+     enviar en el sitemap una URL noindex es una contradiccion que Search Console
+     reporta como "Enviada mediante sitemap pero marcada como noindex". -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dralilipadilla.com/</loc>
-    <lastmod>2026-07-27</lastmod>
-  </url>
-  <url>
-    <loc>https://dralilipadilla.com/riviera-sleep</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://dralilipadilla.com/estudios-de-sueno</loc>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
     <loc>https://dralilipadilla.com/protocolo-ser</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://dralilipadilla.com/riviera-sleep</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://dralilipadilla.com/links</loc>
-  </url>
-  <url>
-    <loc>https://dralilipadilla.com/privacidad</loc>
+    <lastmod>2026-07-29</lastmod>
   </url>
 </urlset>
