@@ -1,0 +1,217 @@
+/* ============================================================
+   Blog · Dra. Lili Padilla
+   Hoja compartida por /blog y por cada articulo.
+
+   Se separa en archivo propio (y no embebido, como hacen las
+   subpaginas) porque aqui si hay duplicacion real: cada articulo
+   nuevo usaria el mismo bloque de ~300 lineas. styles.css y
+   riviera.css ya sientan el precedente de CSS externo.
+
+   Sistema visual: el de las subpaginas (Outfit + Cormorant
+   Garamond sobre la paleta oficial), no el de index.html.
+   ============================================================ */
+
+:root{
+  --teal:#00a8a8; --teal-dark:#008f8f; --teal-deep:#0c6980;
+  --navy:#071e30; --navy-soft:#0a2940; --cyan:#3cd2dd;
+  --ice:#c0f0f7; --ice-soft:#e8f9fb; --sand:#f7f5f2;
+  --text:#2a3d4e; --gray:#96a4ad; --white:#fff;
+  --accent:#B8936A; /* terracota/arena, tomado de styles.css — cajas de alerta */
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:var(--teal);text-decoration:none;}
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:var(--teal);color:var(--white);padding:.75rem 1.25rem;border-radius:0 0 8px 0;font-weight:600;}
+.skip-link:focus{left:0;}
+
+/* ---------- NAV (identico a las subpaginas) ---------- */
+.nav{position:fixed;top:0;width:100%;z-index:100;background:var(--navy);padding:1rem 1.5rem;box-shadow:0 2px 20px rgba(0,0,0,.15);}
+.nav-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+.nav-brand span{color:var(--cyan);font-style:italic;}
+.nav-links{display:flex;gap:1.5rem;align-items:center;}
+.nav-links a{font-size:.85rem;color:rgba(255,255,255,.7);font-weight:500;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-links a[aria-current="page"]{color:var(--cyan);}
+.nav-cta{background:var(--teal);color:var(--white)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:600;border:2px solid var(--teal);}
+.nav-cta:hover{background:transparent;color:var(--cyan)!important;border-color:var(--cyan);}
+@media(max-width:1024px){.nav-links a:not(.nav-cta){display:none;}}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;border-radius:50px;font-weight:600;font-size:.98rem;transition:all .3s;border:2px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--teal);color:var(--white);border-color:var(--teal);}
+.btn-primary:hover{background:var(--teal-dark);border-color:var(--teal-dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,168,168,.35);}
+.btn-ghost{background:transparent;color:var(--cyan);border-color:rgba(60,210,221,.45);}
+.btn-ghost:hover{background:rgba(60,210,221,.1);border-color:var(--cyan);transform:translateY(-2px);}
+@media(max-width:640px){.btn{width:100%;}}
+
+/* ============================================================
+   INDICE  /blog
+   ============================================================ */
+.blog-hero{position:relative;overflow:hidden;padding:9rem 1.5rem 4.5rem;text-align:center;background:var(--navy);}
+.blog-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(12,105,128,.55) 0%,transparent 62%);}
+.blog-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+.blog-hero-kicker{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:1.4rem;}
+.blog-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4rem);color:var(--white);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.2rem;}
+.blog-hero h1 em{font-style:italic;color:var(--cyan);font-weight:400;}
+.blog-hero p{font-size:1.08rem;color:rgba(255,255,255,.78);max-width:620px;margin:0 auto;}
+
+.blog-list{padding:4.5rem 1.5rem 5rem;}
+.blog-list-inner{max-width:1060px;margin:0 auto;}
+/* Dos columnas explicitas, no auto-fit/auto-fill. Con minmax() el
+   contenedor genera tres pistas, y como la tarjeta destacada las abarca
+   todas (grid-column:1/-1) ninguna queda vacia, asi que auto-fit no las
+   colapsa: las dos tarjetas normales se quedaban angostas dejando un
+   hueco a la derecha. Con dos columnas fijas la fila siempre cierra. */
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+@media(max-width:760px){.blog-grid{grid-template-columns:1fr;}}
+
+.post-card{display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(7,30,48,.09);border-radius:20px;padding:1.9rem 1.75rem 1.75rem;transition:transform .35s,box-shadow .35s,border-color .35s;position:relative;overflow:hidden;}
+.post-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.post-card:hover::before{transform:scaleX(1);}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 14px 38px rgba(7,30,48,.09);border-color:var(--ice);}
+.post-card-tag{align-self:flex-start;font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);background:var(--ice-soft);padding:.35rem .8rem;border-radius:50px;margin-bottom:1.1rem;}
+/* h2 en el indice, h3 en "sigue leyendo" — el nivel cambia segun el
+   contexto del documento, el estilo no. */
+.post-card h2,.post-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.22;color:var(--navy);font-weight:700;margin-bottom:.7rem;}
+.post-card h2 a,.post-card h3 a{color:inherit;}
+.post-card h2 a:hover,.post-card h3 a:hover{color:var(--teal);}
+.post-card p{font-size:.93rem;color:var(--text);margin-bottom:1.35rem;}
+.post-card-meta{margin-top:auto;display:flex;align-items:center;gap:.55rem;font-size:.78rem;color:var(--gray);letter-spacing:.02em;}
+.post-card-more{margin-top:1rem;font-size:.88rem;font-weight:600;color:var(--teal);}
+.post-card-more::after{content:' →';}
+
+/* Tarjeta destacada: ocupa el ancho completo en pantallas amplias */
+.post-card--featured{grid-column:1/-1;background:var(--sand);border-color:transparent;padding:2.5rem 2.25rem 2.25rem;}
+.post-card--featured h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+.post-card--featured p{font-size:1.02rem;max-width:64ch;}
+
+/* Tira de suscripcion al final del indice */
+.blog-quiz{background:linear-gradient(165deg,var(--navy),var(--teal-deep));color:var(--white);padding:4.5rem 1.5rem;text-align:center;}
+.blog-quiz-inner{max-width:640px;margin:0 auto;}
+.blog-quiz .kicker{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;}
+.blog-quiz h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,2.7rem);font-weight:700;line-height:1.14;margin-bottom:1rem;}
+.blog-quiz h2 em{font-style:italic;color:var(--cyan);font-weight:400;}
+.blog-quiz p{color:rgba(255,255,255,.74);margin-bottom:2rem;}
+
+/* ============================================================
+   ARTICULO  /blog/<slug>
+   ============================================================ */
+.art-hero{position:relative;overflow:hidden;padding:8.5rem 1.5rem 3.5rem;background:var(--navy);}
+.art-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 110%,rgba(12,105,128,.5) 0%,transparent 60%);}
+.art-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+.crumbs{font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:1.5rem;}
+.crumbs a{color:rgba(255,255,255,.6);}
+.crumbs a:hover{color:var(--cyan);}
+.crumbs span{margin:0 .45rem;}
+.art-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(60,210,221,.35);padding:.35rem .85rem;border-radius:50px;margin-bottom:1.3rem;}
+.art-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,5.2vw,3.4rem);color:var(--white);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:1.1rem;}
+.art-hero h1 em{font-style:italic;color:var(--cyan);font-weight:400;}
+.art-standfirst{font-size:1.08rem;color:rgba(255,255,255,.78);max-width:62ch;margin-bottom:2rem;}
+.art-meta{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);}
+.art-meta-photo{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(60,210,221,.4);}
+.art-meta-who{font-size:.88rem;color:var(--white);font-weight:600;}
+.art-meta-sub{font-size:.76rem;color:rgba(255,255,255,.45);}
+.art-meta-dot{color:rgba(255,255,255,.25);}
+.art-meta-time{font-size:.78rem;color:rgba(255,255,255,.5);margin-left:auto;}
+@media(max-width:640px){.art-meta-time{margin-left:0;width:100%;}}
+
+/* ---------- Cuerpo ---------- */
+/* El nav es fixed: sin este margen, saltar a #contenido (skip-link) o a
+   cualquier ancla deja el destino escondido detras de la barra. */
+#contenido,.art-body h2,.art-body h3{scroll-margin-top:5.5rem;}
+
+.art-body{padding:3.5rem 1.5rem 1rem;}
+.art-body-inner{max-width:700px;margin:0 auto;}
+.art-body p{font-size:1.06rem;margin-bottom:1.35rem;}
+.art-body h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.6vw,2.15rem);color:var(--navy);font-weight:700;line-height:1.2;margin:3rem 0 1.1rem;}
+.art-body h2 em{font-style:italic;color:var(--teal);font-weight:400;}
+.art-body h3{font-family:'Cormorant Garamond',serif;font-size:1.32rem;color:var(--navy);font-weight:600;margin:2.2rem 0 .7rem;}
+.art-body strong{color:var(--navy);font-weight:600;}
+.art-body em{font-style:italic;}
+.art-body a{font-weight:600;border-bottom:1px solid rgba(0,168,168,.3);}
+.art-body a:hover{border-bottom-color:var(--teal);}
+.art-body ul,.art-body ol{margin:0 0 1.5rem 1.3rem;}
+.art-body li{font-size:1.04rem;margin-bottom:.65rem;padding-left:.3rem;}
+.art-body li::marker{color:var(--teal);}
+.art-body hr{border:0;height:1px;background:rgba(7,30,48,.1);margin:3rem 0;}
+
+/* Cita destacada */
+.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.35rem,3vw,1.75rem);font-style:italic;line-height:1.42;color:var(--teal-deep);border-left:3px solid var(--teal);padding:.25rem 0 .25rem 1.75rem;margin:2.75rem 0;}
+
+/* Caja de dato / evidencia */
+.dato{background:var(--ice-soft);border-radius:16px;padding:1.6rem 1.6rem 1.35rem;margin:2.25rem 0;border-left:3px solid var(--teal);}
+.dato-titulo{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;}
+.dato p:last-child{margin-bottom:0;}
+.dato p{font-size:.98rem;}
+
+/* Caja de alerta / senal clinica */
+.alerta{background:var(--sand);border-radius:16px;padding:1.7rem 1.7rem 1.4rem;margin:2.25rem 0;border-left:3px solid var(--accent);}
+.alerta h3{margin:0 0 .8rem;font-size:1.18rem;}
+.alerta ul{margin-bottom:0;}
+.alerta li:last-child{margin-bottom:0;}
+
+/* Lo que te llevas */
+.llevas{background:var(--navy);color:rgba(255,255,255,.78);border-radius:20px;padding:2.1rem 2rem 1.85rem;margin:3rem 0;}
+.llevas-titulo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);font-weight:600;margin-bottom:1.1rem;}
+.llevas ul{margin:0;list-style:none;}
+.llevas li{font-size:1rem;color:rgba(255,255,255,.75);margin-bottom:.85rem;padding-left:1.6rem;position:relative;}
+.llevas li:last-child{margin-bottom:0;}
+.llevas li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--cyan);}
+.llevas strong{color:var(--white);}
+
+/* CTA intermedio hacia el quiz */
+.art-cta{background:var(--ice-soft);border-radius:20px;padding:2rem 2rem 1.9rem;margin:3rem 0;text-align:center;}
+.art-cta h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--navy);font-weight:700;margin:0 0 .6rem;}
+.art-cta p{font-size:.98rem;margin-bottom:1.5rem;}
+.art-cta .btn{width:auto;}
+@media(max-width:640px){.art-cta .btn{width:100%;}}
+
+/* Aviso medico al pie del articulo */
+.art-nota{font-size:.85rem;color:var(--gray);font-style:italic;border-top:1px solid rgba(7,30,48,.1);padding-top:1.5rem;margin-top:3rem;}
+
+/* ---------- Firma de autora ---------- */
+.autora{background:var(--sand);padding:3.5rem 1.5rem;}
+.autora-inner{max-width:700px;margin:0 auto;display:flex;gap:1.75rem;align-items:flex-start;}
+.autora-foto{width:110px;height:110px;border-radius:18px;object-fit:cover;object-position:center top;flex-shrink:0;}
+.autora-kicker{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem;}
+.autora h2{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--navy);font-weight:700;margin-bottom:.5rem;}
+.autora p{font-size:.95rem;margin-bottom:.9rem;}
+.autora-ced{font-size:.78rem;color:var(--gray);}
+
+/* ---------- Cierre + relacionados ---------- */
+.art-final{background:linear-gradient(165deg,var(--navy),var(--teal-deep));color:var(--white);padding:4.5rem 1.5rem;text-align:center;}
+.art-final-inner{max-width:640px;margin:0 auto;}
+.art-final .kicker{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;}
+.art-final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,2.7rem);font-weight:700;line-height:1.14;margin-bottom:1rem;}
+.art-final h2 em{font-style:italic;color:var(--cyan);font-weight:400;}
+.art-final p{color:rgba(255,255,255,.74);margin-bottom:2rem;}
+.art-final-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+.relacionados{padding:4rem 1.5rem;}
+.relacionados-inner{max-width:1060px;margin:0 auto;}
+.relacionados-titulo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--navy);font-weight:700;margin-bottom:1.75rem;text-align:center;}
+.relacionados-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+@media(max-width:760px){.relacionados-grid{grid-template-columns:1fr;}}
+
+@media(max-width:640px){
+  .autora-inner{flex-direction:column;gap:1.25rem;}
+  .autora-foto{width:88px;height:88px;}
+  .art-final-actions{flex-direction:column;}
+}
+
+/* ---------- Footer (identico a las subpaginas) ---------- */
+footer{background:var(--navy);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,.06);}
+footer p{font-size:.78rem;color:rgba(255,255,255,.32);}
+footer a{color:var(--cyan);}
+.footer-links{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;}
+.footer-links a{font-size:.82rem;color:rgba(255,255,255,.55);}
+.footer-links a:hover{color:var(--cyan);}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;animation:none!important;}
+}

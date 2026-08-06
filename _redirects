@@ -18,3 +18,13 @@ https://loquacious-syrniki-d4e257.netlify.app/*  https://dralilipadilla.com/:spl
 /gracias.html             /gracias              301!
 /gracias-poligrafia.html      /gracias-poligrafia      301!
 /gracias-polisomnografia.html /gracias-polisomnografia 301!
+
+# Blog. Misma regla que arriba, una linea por archivo: Netlify no permite
+# quitar el .html con un splat (/blog/* captura "slug.html" completo, sin
+# forma de recortar la extension), asi que se listan a mano igual que el
+# resto del sitio. Al publicar un articulo nuevo, agregar su linea aqui
+# y su <url> en sitemap.xml.
+/blog/index.html                   /blog                        301!
+/blog/ronquido-infantil.html       /blog/ronquido-infantil      301!
+/blog/despertar-de-madrugada.html  /blog/despertar-de-madrugada 301!
+/blog/perimenopausia-y-sueno.html  /blog/perimenopausia-y-sueno 301!
