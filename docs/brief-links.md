@@ -29,38 +29,35 @@ Se migró a la paleta clara **"Papel Médico"** del sitio principal:
 | Teal brillante `#00a8a8` / cian `#3cd2dd` | Teal profundo `#007272` + arena `#B8936A` |
 | Tipografías Outfit + Cormorant Garamond | Lora + Nunito (las del sitio principal) |
 | Tarjetas de vidrio translúcido sobre oscuro | Tarjetas blancas con borde y sombra suave |
-| Foto de perfil recortada con `transform:scale(2.4)` sobre una foto de cuerpo entero | Archivo cuadrado dedicado `images/perfil.jpg` (640×640) |
+| Foto de perfil recortada con `transform:scale(2.4)` sobre una foto de cuerpo entero | Archivo cuadrado dedicado `images/avatar-lili.jpg` (640×640) |
 
 El detalle completo de tokens está en `docs/design-system.md`.
 
-## 3. Problemas que seguimos queriendo resolver
+## 3. Resuelto en la ronda de diseño
 
-1. **La foto de perfil sigue siendo un recorte.** El original (`images/about.jpg`) es una
-   foto de consultorio de cuerpo entero; el fondo turquesa del consultorio choca con la
-   paleta crema. **Se necesita un retrato dedicado**: fondo neutro claro o desenfocado,
-   luz suave, encuadre de cabeza y hombros. Ver especificación en la sección 5.
-2. **Jerarquía visual plana.** Hay 14 enlaces con casi el mismo peso. Las secciones se
-   separan solo con una etiqueta pequeña. Falta un ritmo que empuje la vista al CTA.
-3. **Los iconos son genéricos.** Son trazos SVG estándar. No hay lenguaje visual propio
-   para Protocolo S·E·R, RespiraGym ni Escuela de Sueño, que son productos de la marca.
-4. **La página es larga en móvil** (~4000px). Puede que convenga agrupar, colapsar o
-   priorizar.
-5. **No hay imagen Open Graph propia.** Al compartir el link se usa la foto de consultorio,
-   que se recorta mal en el preview.
+Diseño recibido: `Links Papel Medico.dc.html` (Claude Design, proyecto
+`ser-dra-lili-padilla-design-system`), ya implementado en `links.html`.
 
-## 4. Lo que pedimos
+- **Jerarquía.** Cuatro secciones en vez de tres, con "Agenda tu consulta" concentrando el
+  CTA y las dos modalidades de estudio. Estudios de Sueño se abrió en dos tarjetas
+  (Polisomnografía en hotel Four Points · Poligrafía en casa), que es como la paciente
+  realmente decide.
+- **Nueva sección "Educación en sueño"**, encabezada por la invitación a colaborar
+  (charlas, empresas, medios, escuelas) con su propia variante cálida de tarjeta.
+- **Credenciales como firma** en vez de píldoras sueltas: filete teal, ubicación y cédula.
+  Se añadió Hospital Galenia.
+- **Iconos revisados** por producto: onda para polisomnografía, luna para poligrafía,
+  círculos concéntricos para S·E·R, diana radiada para Entrena tu Respiración.
+- **Área táctil** de 44px mínimo en cada enlace.
 
-- Propuesta visual de la página completa en móvil (430px de ancho) respetando los tokens
-  del design system. Si algo del sistema estorba, decirlo y proponer el cambio — el sistema
-  también se puede actualizar.
-- Set de iconos propios para los 4 productos de marca (Protocolo S·E·R, RespiraGym,
-  Entrena tu Respiración, Escuela de Sueño), en trazo de 1.7px sobre grid de 24px, para
-  que encajen con los existentes.
-- Propuesta de jerarquía: cómo hacer que "Agendar" gane sin gritar.
-- Imagen Open Graph 1200×630.
+## 4. Lo que sigue pendiente
 
-**Entregable ideal:** el mismo `links.html` editado, o Figma + specs. La página no usa
-framework alguno, así que cualquier cambio de CSS se aplica directo.
+1. **El retrato sigue siendo un recorte** de la foto de consultorio: el fondo turquesa
+   choca con la paleta crema. Se necesita un retrato dedicado — especificación en la sección 5.
+2. **No hay imagen Open Graph propia.** Al compartir el link se usa la foto de consultorio,
+   que se recorta mal en el preview. Hace falta una de 1200×630.
+3. **La página es larga en móvil** (~4500px, 17 enlaces). Vale la pena revisar si conviene
+   agrupar o priorizar más.
 
 ## 5. Especificación del retrato
 
@@ -84,21 +81,23 @@ framework alguno, así que cualquier cambio de CSS se aplica directo.
 ## 7. Inventario de enlaces actual
 
 **Agenda tu consulta**
-1. Agendar con la Dra. Lili — `/agendar` *(destacada, "Empieza aquí")*
-2. WhatsApp — 998 151 6161
+1. Agendar consulta — `/agendar` *(destacada, "Empieza aquí")*
+2. Polisomnografía — `/estudios-de-sueno`
+3. Poligrafía respiratoria — `/estudios-de-sueno`
+4. WhatsApp — 998 151 6161
 
-**Programas y servicios**
-3. Estudios de Sueño — `/estudios-de-sueno`
-4. Protocolo S·E·R — `/protocolo-ser`
-5. Riviera Sleep Program — `/riviera-sleep` *(en inglés)*
-6. Sitio web principal — `/`
+**Educación en sueño**
+5. ¿Te interesa colaborar para educar en sueño? — WhatsApp con texto propio *(variante arena)*
+6. Quiz del sueño
+7. Blog de sueño y respiración — `/blog`
+8. Comunidad Escuela de Sueño (grupo de WhatsApp)
 
-**Escuela de Sueño · gratis**
-7. Quiz del sueño
-8. Blog de sueño y respiración — `/blog`
-9. Comunidad Escuela de Sueño (grupo de WhatsApp)
+**Programas y herramientas**
+9. Protocolo S·E·R — `/protocolo-ser`
 10. RespiraGym
 11. Entrena tu Respiración
+12. Riviera Sleep Program — `/riviera-sleep` *(en inglés)*
+13. Sitio web principal — `/`
 
 **Redes sociales**
-12. Instagram · 13. TikTok · 14. YouTube · 15. Facebook — todos `@dra.lilipadilla`
+14. Instagram · 15. TikTok · 16. YouTube · 17. Facebook — todos `@dra.lilipadilla`

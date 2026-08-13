@@ -1,7 +1,8 @@
 # Design System — Dra. Lili Padilla
 
 Fuente de verdad: `styles.css` (sitio principal) y el bloque `<style>` de `links.html`.
-Última actualización: agosto 2026 — al migrar `/links` de tema oscuro a paleta clara "Papel Médico".
+Última actualización: agosto 2026 — al implementar el diseño `Links Papel Medico.dc.html`
+(proyecto de Claude Design `ser-dra-lili-padilla-design-system`) sobre `/links`.
 
 ---
 
@@ -47,7 +48,7 @@ Google Fonts (una sola petición):
 
 ## 3. Forma y profundidad
 
-- **Radios:** 8px (sm), 12px (contenedores de icono), 16px (tarjetas), 24px (bloques grandes), 50% (avatar y chips).
+- **Radios:** 8px (sm), 12px (contenedores de icono), 16px (tarjetas), 24px (bloques grandes), 50% (avatar).
 - **Sombras:** reposo `0 1px 2px rgba(7,30,48,.04)`; hover `0 12px 28px rgba(7,30,48,.10)`; avatar `0 10px 28px rgba(7,30,48,.14)`.
   Sombras siempre en navy con alpha, nunca en negro puro — el negro sobre crema se ve sucio.
 - **Bordes:** 1px. Neutro `--line` en reposo, `--line-teal` en hover/foco.
@@ -70,7 +71,8 @@ Todas las animaciones ambientales se apagan bajo `prefers-reduced-motion:reduce`
 ### Tarjeta de enlace (`.card`)
 Fila horizontal: contenedor de icono 42×42 (radio 12px) · bloque de texto (título 700 / .95rem + subtítulo `--navy-3` / .775rem) · flecha.
 Padding `.95rem 1.15rem`, gap `.95rem`, separación vertical `.7rem`.
-Hover: eleva 2px, borde a `--line-teal`, barrido de luz teal al 7% cruzando la tarjeta.
+`min-height:44px`. Hover: eleva 2px, sombra a `0 12px 28px rgba(7,30,48,.10)`, borde a
+`--line-teal` y la flecha se desplaza 4px al teal.
 
 ### Tarjeta destacada (`.card.hero`)
 Igual, con fondo `linear-gradient(135deg, teal 10%, arena 10%)` y borde de acento.
@@ -78,20 +80,30 @@ Lleva `.badge`: pestaña superior derecha, teal sólido, texto blanco, .58rem, m
 **Máximo una por página** — es el CTA principal.
 
 ### Contenedores de icono
-Fondo del color de la marca al 7–16% de opacidad, ícono al color sólido oscurecido para
-contraste sobre claro: WhatsApp `#128C7E`, Instagram `#C13584`, YouTube `#CC0000`,
-Facebook `#1877F2`, TikTok `--navy`, propios `--teal` / `#8A6A44`.
+42×42, radio 12px, `flex:0 0 42px`. Fondo del color de la marca al 7–14% de opacidad, ícono
+al color sólido oscurecido para contraste sobre claro: WhatsApp `#128C7E` sobre `rgba(18,140,126,.10)`,
+Instagram `#C13584` sobre `rgba(193,53,132,.10)`, YouTube `#CC0000` sobre `rgba(204,0,0,.09)`,
+Facebook `#1877F2` sobre `rgba(24,119,242,.10)`, TikTok `--navy` sobre `rgba(7,30,48,.07)`,
+teal propio sobre `rgba(0,114,114,.10)`, arena `#8A6A44` sobre `rgba(184,147,106,.14)`.
+
+### Variante cálida (`.card.sand`)
+Misma tarjeta con borde `rgba(184,147,106,.35)` (hover `.6`) e icono de arena. Reservada para
+invitaciones y colaboración — nunca para servicios clínicos, que van siempre en teal.
 
 ### Avatar
 112×112, circular, borde de 4px del color del fondo, anillo cónico giratorio
 (teal → arena → teal) al 40% de opacidad, 18s por vuelta.
 
-### Chip (`.chip`)
-Píldora de credencial: blanco al 70%, borde `--line`, texto `--navy-2` a .7rem.
+### Bloque de credenciales (`.cred`)
+Sustituye a las píldoras sueltas. Columna centrada: filete teal de 28×1px al 45% de opacidad,
+línea de ubicación (.78rem, peso 600, `--navy-2`) y línea de credencial (.72rem, `--navy-3`).
+Se lee como una firma, no como etiquetas.
 
 ## 6. Especificación de imágenes
 
-- **Avatar:** cuadrado 1:1, mínimo 640×640, JPG progresivo con calidad ~88.
+- **Avatar:** cuadrado 1:1, mínimo 640×640, JPG progresivo real con calidad ~88 y bajo 100 KB.
+  Verificar el formato del archivo, no la extensión: un PNG renombrado a `.jpg` pesa diez veces más
+  y el navegador lo carga igual, así que el problema pasa desapercibido.
   Encuadre: ojos al 38% de altura, cabeza ocupando ~45% del alto, hombros visibles.
   El archivo debe venir **ya recortado en cuadrado** — nada de recortar con `transform:scale()` en CSS.
 - **Open Graph:** 1200×630, la cara en el tercio izquierdo o centrada, sin texto pequeño.
@@ -100,6 +112,6 @@ Píldora de credencial: blanco al 70%, borde `--line`, texto `--navy-2` a .7rem.
 ## 7. Accesibilidad
 
 - Foco visible: `outline:2px solid var(--teal); outline-offset:3px`. No eliminar.
-- Área táctil mínima de 44px de alto en cada enlace.
+- Área táctil mínima de 44px de alto en cada enlace (`min-height:44px` en `.card`).
 - El color nunca es el único portador de significado (los iconos siempre van con texto).
 - `prefers-reduced-motion` desactiva aurora y anillo del avatar.

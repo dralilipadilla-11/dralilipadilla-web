@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== TOKENS — heredados del sitio principal (styles.css) ===== */
+/* ===== TOKENS — paleta "Papel Médico", igual que styles.css ===== */
 :root{
   --bg:#FAFAF8;          /* blanco cálido */
   --bg-2:#F0EDE6;        /* crema suave */
@@ -49,23 +49,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --teal:#007272;        /* teal profundo */
   --teal-deep:#005A5A;   /* hover */
   --accent:#B8936A;      /* terracota / arena */
+  --accent-ink:#8A6A44;  /* arena legible sobre claro */
   --navy:#071e30;        /* texto principal */
   --navy-2:#2A4A5A;      /* texto secundario */
   --navy-3:#6A8A9A;      /* muted */
   --line:rgba(7,30,48,.10);
   --line-teal:rgba(0,114,114,.20);
+  --line-sand:rgba(184,147,106,.35);
   --ease:cubic-bezier(.16,1,.3,1);
   --serif:"Lora",Georgia,serif;
-  --sans:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --sans:"Nunito",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{
   font-family:var(--sans);
   min-height:100dvh;
-  /* Base crema: blanco cálido arriba, crema suave hacia abajo */
   background:var(--bg);
-  background-image:linear-gradient(180deg,var(--bg) 0%,#F7F3EA 55%,#F2EDE2 100%);
+  background-image:linear-gradient(180deg,#FAFAF8,#F7F3EA 55%,#F2EDE2);
   background-attachment:fixed;
   color:var(--navy);
   -webkit-font-smoothing:antialiased;
@@ -75,66 +76,65 @@ body{
   position:relative;overflow-x:hidden;
 }
 
-/* ===== FONDO ORGÁNICO (lavados suaves, no bloques de color) ===== */
+/* ===== FONDO ORGÁNICO ===== */
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .aurora span{position:absolute;display:block;border-radius:50%;filter:blur(70px);}
-.aurora .a1{top:-24%;right:-20%;width:80vw;height:80vw;max-width:660px;max-height:660px;
+.aurora .a1{top:-20%;right:-16%;width:74vw;height:74vw;max-width:620px;max-height:620px;
   background:radial-gradient(circle,rgba(0,114,114,.16),transparent 68%);
-  animation:drift1 24s ease-in-out infinite alternate;}
-.aurora .a2{bottom:-20%;left:-24%;width:74vw;height:74vw;max-width:620px;max-height:620px;
+  animation:wash1 24s ease-in-out infinite alternate;}
+.aurora .a2{bottom:-18%;left:-20%;width:70vw;height:70vw;max-width:580px;max-height:580px;
   background:radial-gradient(circle,rgba(184,147,106,.20),transparent 68%);
-  animation:drift2 29s ease-in-out infinite alternate;}
-.aurora .a3{top:36%;left:40%;width:56vw;height:56vw;max-width:460px;max-height:460px;
+  animation:wash2 28s ease-in-out infinite alternate;}
+.aurora .a3{top:34%;left:38%;width:52vw;height:52vw;max-width:460px;max-height:460px;
   background:radial-gradient(circle,rgba(255,253,247,.85),transparent 70%);
-  animation:drift3 33s ease-in-out infinite alternate;}
-@keyframes drift1{to{transform:translate3d(-7%,9%,0) scale(1.12);}}
-@keyframes drift2{to{transform:translate3d(9%,-8%,0) scale(1.15);}}
-@keyframes drift3{to{transform:translate3d(-11%,-6%,0) scale(.9);}}
-/* Textura de papel: muy sutil sobre fondo claro */
+  animation:wash3 32s ease-in-out infinite alternate;}
+@keyframes wash1{to{transform:translate3d(-6%,8%,0) scale(1.12);}}
+@keyframes wash2{to{transform:translate3d(8%,-7%,0) scale(1.14);}}
+@keyframes wash3{to{transform:translate3d(-9%,-5%,0) scale(.92);}}
+/* Textura de papel */
 .grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
-.wrap{width:100%;max-width:500px;position:relative;z-index:1;}
+.wrap{width:100%;max-width:500px;position:relative;z-index:1;display:flex;flex-direction:column;}
 
 /* ===== ENTRADA ESCALONADA ===== */
 .rise{animation:rise .7s var(--ease) both;animation-delay:calc(var(--d,0) * 55ms);}
-@keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+@keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
 
 /* ===== PERFIL ===== */
 .profile{text-align:center;margin-bottom:2.25rem;}
-.avatar{position:relative;width:112px;height:112px;margin:0 auto 1.15rem;border-radius:50%;}
+.avatar{position:relative;width:112px;height:112px;margin:0 auto 1.15rem;}
 .avatar::before{
-  content:'';position:absolute;inset:-5px;border-radius:50%;
-  background:conic-gradient(from 0deg,var(--teal),var(--accent),var(--teal-deep),var(--teal));
-  opacity:.4;animation:spin 18s linear infinite;
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--teal),var(--accent),var(--teal));
+  opacity:.4;animation:ringspin 18s linear infinite;
 }
-@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes ringspin{to{transform:rotate(360deg);}}
 .avatar-inner{
   position:absolute;inset:0;border-radius:50%;overflow:hidden;
   border:4px solid var(--bg);background:var(--bg-2);
   box-shadow:0 10px 28px rgba(7,30,48,.14);
 }
-/* Foto ya recortada en cuadrado: sin trucos de zoom */
-.avatar-inner img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block;}
+/* La foto ya viene recortada en cuadrado: sin trucos de zoom */
+.avatar-inner img{width:100%;height:100%;object-fit:cover;display:block;}
 .profile h1{
   font-family:var(--serif);font-size:2rem;font-weight:600;
-  line-height:1.1;letter-spacing:-.015em;margin-bottom:.45rem;color:var(--navy);
+  line-height:1.1;letter-spacing:-.015em;margin:0 0 .45rem;
 }
 .profile h1 span{color:var(--teal);font-style:italic;font-weight:500;}
 .profile-title{
-  font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;
-  color:var(--navy-3);margin-bottom:.9rem;
+  font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--navy-3);margin:0 0 .9rem;
 }
 .tagline{
   font-family:var(--serif);font-style:italic;font-size:1.15rem;font-weight:400;
-  color:var(--navy-2);line-height:1.5;max-width:22rem;margin:0 auto .95rem;
+  color:var(--navy-2);line-height:1.45;max-width:22rem;margin:0 auto .95rem;
 }
-.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;}
-.chip{
-  font-size:.7rem;color:var(--navy-2);
-  background:rgba(255,255,255,.7);border:1px solid var(--line);
-  padding:.3rem .7rem;border-radius:50px;
-}
+/* Credenciales: se leen como una firma, no como etiquetas sueltas */
+.cred{display:flex;flex-direction:column;align-items:center;gap:.55rem;margin-top:1.25rem;}
+.cred-rule{display:block;width:28px;height:1px;background:rgba(0,114,114,.45);}
+.cred-where{margin:0;font-size:.78rem;font-weight:600;color:var(--navy-2);line-height:1.5;}
+.cred-id{margin:0;font-size:.72rem;font-weight:400;color:var(--navy-3);line-height:1.5;}
 
 /* ===== ETIQUETA DE SECCIÓN ===== */
 .tag{
@@ -142,98 +142,94 @@ body{
   font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;
   color:var(--navy-3);margin:2rem 0 .85rem;
 }
-.tag::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-teal),transparent);}
+.tag:first-of-type{margin-top:0;}
+.tag::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(7,30,48,.14),transparent);}
+
+/* ===== GRUPO DE TARJETAS ===== */
+.group{display:flex;flex-direction:column;gap:.7rem;}
 
 /* ===== TARJETAS DE ENLACE ===== */
 .card{
   position:relative;display:flex;align-items:center;gap:.95rem;width:100%;
+  min-height:44px;
   background:var(--bg-card);
   border:1px solid var(--line);
   border-radius:16px;padding:.95rem 1.15rem;
   text-decoration:none;color:var(--navy);
-  margin-bottom:.7rem;overflow:hidden;
   box-shadow:0 1px 2px rgba(7,30,48,.04);
-  transition:transform .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-/* Barrido de luz al pasar el cursor */
-.card::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(105deg,transparent 35%,rgba(0,114,114,.07) 50%,transparent 65%);
-  transform:translateX(-120%);transition:transform .7s var(--ease);
-}
-.card:hover::before{transform:translateX(120%);}
 .card:hover{
-  background:#fff;border-color:var(--line-teal);
-  transform:translateY(-2px);box-shadow:0 12px 28px rgba(7,30,48,.10);
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(7,30,48,.10);
+  border-color:var(--line-teal);
 }
 .card:active{transform:translateY(0);}
 .card:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
 
 .ico{
-  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  width:42px;height:42px;border-radius:12px;flex:0 0 42px;
   display:flex;align-items:center;justify-content:center;
 }
 .ico svg{width:20px;height:20px;}
 .ico svg.brand{fill:currentColor;}
 .ico svg.line{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ico svg.thin{fill:none;stroke:currentColor;stroke-width:1.5;}
 
 .txt{flex:1;min-width:0;}
 .txt strong{display:block;font-size:.95rem;font-weight:700;line-height:1.3;}
 .txt span{display:block;font-size:.775rem;color:var(--navy-3);margin-top:.12rem;line-height:1.35;}
-.arw{flex-shrink:0;color:var(--navy-3);opacity:.6;transition:transform .3s var(--ease),color .3s,opacity .3s;}
+.arw{flex-shrink:0;color:var(--navy-3);display:flex;transition:transform .3s var(--ease),color .3s;}
 .arw svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.card:hover .arw{color:var(--teal);opacity:1;transform:translateX(4px);}
+.card:hover .arw{color:var(--teal);transform:translateX(4px);}
 
-/* Variantes de icono — tintes claros, contraste sobre crema */
+/* Variantes de icono */
 .i-teal{background:rgba(0,114,114,.10);color:var(--teal);}
-.i-cyan{background:rgba(0,114,114,.07);color:var(--teal-deep);}
-.i-sand{background:rgba(184,147,106,.16);color:#8A6A44;}
-.i-wa{background:rgba(37,211,102,.14);color:#128C7E;}
-.i-ig{background:rgba(225,48,108,.10);color:#C13584;}
-.i-yt{background:rgba(255,0,0,.09);color:#CC0000;}
+.i-sand{background:rgba(184,147,106,.14);color:var(--accent-ink);}
+.i-wa{background:rgba(18,140,126,.10);color:#128C7E;}
+.i-ig{background:rgba(193,53,132,.10);color:#C13584;}
+.i-yt{background:rgba(204,0,0,.09);color:#CC0000;}
 .i-fb{background:rgba(24,119,242,.10);color:#1877F2;}
 .i-tt{background:rgba(7,30,48,.07);color:var(--navy);}
 
-/* Destacada */
+/* Destacada — solo una por página */
 .card.hero{
   background:linear-gradient(135deg,rgba(0,114,114,.10),rgba(184,147,106,.10));
-  border-color:var(--line-teal);padding:1.15rem;
+  border-color:rgba(0,114,114,.28);padding:1.2rem 1.15rem;overflow:hidden;
 }
+.card.hero .ico{background:rgba(0,114,114,.12);}
 .card.hero .txt strong{font-size:1.02rem;}
-.card.hero .txt span{color:var(--navy-2);}
-.card.hero:hover{
-  background:linear-gradient(135deg,rgba(0,114,114,.16),rgba(184,147,106,.16));
-  border-color:rgba(0,114,114,.42);box-shadow:0 14px 32px rgba(0,114,114,.16);
-}
-.card.hero .arw{color:var(--teal);opacity:.8;}
+.card.hero:hover{border-color:rgba(0,114,114,.5);}
 .badge{
   position:absolute;top:0;right:1.15rem;
   font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   background:var(--teal);color:#fff;
-  padding:.22rem .6rem;border-radius:0 0 7px 7px;
+  padding:.24rem .6rem;border-radius:0 0 7px 7px;
 }
+
+/* Variante cálida — invitación a colaborar */
+.card.sand{border-color:var(--line-sand);}
+.card.sand:hover{border-color:rgba(184,147,106,.6);}
 
 /* ===== PIE ===== */
 .foot{text-align:center;margin-top:2.5rem;}
 .foot-site{
-  display:inline-block;font-size:.82rem;font-weight:600;color:var(--navy-2);
-  text-decoration:none;border-bottom:1px solid var(--line-teal);padding-bottom:.15rem;
+  display:inline-block;font-size:.82rem;font-weight:700;color:var(--teal);
+  text-decoration:none;border-bottom:1px solid rgba(0,114,114,.35);padding-bottom:.15rem;
   transition:color .3s,border-color .3s;
 }
-.foot-site:hover{color:var(--teal);border-color:var(--teal);}
-.foot-legal{margin-top:.9rem;font-size:.68rem;color:var(--navy-3);line-height:1.6;}
+.foot-site:hover{color:var(--teal-deep);border-color:var(--teal-deep);}
+.foot-legal{margin:.9rem 0 0;font-size:.7rem;color:var(--navy-3);line-height:1.6;}
 
 @media(max-width:400px){
   body{padding:2.5rem 1rem 2.5rem;}
   .profile h1{font-size:1.75rem;}
   .card{padding:.85rem 1rem;gap:.8rem;}
-  .ico{width:38px;height:38px;}
+  .ico{width:38px;height:38px;flex-basis:38px;}
 }
 
-/* Solo se desactiva lo verdaderamente intrusivo */
 @media(prefers-reduced-motion:reduce){
-  .aurora span{animation:none;}
-  .avatar::before{animation:none;}
+  *{animation:none !important;}
 }
 </style>
 </head>
@@ -247,199 +243,228 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="grain" aria-hidden="true"></div>
 
 <main class="wrap">
-
   <!-- ===== PERFIL ===== -->
   <header class="profile rise">
     <div class="avatar">
-      <div class="avatar-inner"><img src="images/perfil.jpg" alt="Dra. Lili Padilla" width="112" height="112" loading="eager" decoding="async"></div>
+      <div class="avatar-inner"><img src="images/avatar-lili.jpg" alt="Dra. Lili Padilla, otorrinolaringóloga y especialista en medicina del sueño" width="112" height="112" decoding="async"></div>
     </div>
     <h1>Dra. Lili <span>Padilla</span></h1>
     <p class="profile-title">Otorrinolaringología · Medicina del Sueño</p>
     <p class="tagline">El sueño no se pierde. Se comprende y se entrena.</p>
-    <div class="meta">
-      <span class="chip">Cancún, Q. Roo</span>
-      <span class="chip">Presencial y videoconsulta</span>
-      <span class="chip">Céd. Esp. 9181490 · UNAM</span>
+    <div class="cred">
+      <span class="cred-rule" aria-hidden="true"></span>
+      <p class="cred-where">Cancún, Q. Roo · Presencial y videoconsulta</p>
+      <p class="cred-id">Hospital Galenia · Céd. Esp. 9181490, UNAM</p>
     </div>
   </header>
 
   <!-- ===== CONSULTA ===== -->
   <p class="tag rise">Agenda tu consulta</p>
 
-  <a class="card hero rise" href="/agendar">
-    <span class="badge">Empieza aquí</span>
-    <span class="ico i-teal">
-      <svg class="line" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Agendar con la Dra. Lili</strong>
-      <span>Videoconsulta o presencial en Cancún</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+  <div class="group">
+    <a class="card hero rise" href="/agendar">
+      <span class="badge">Empieza aquí</span>
+      <span class="ico i-teal">
+        <svg class="line" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Agendar consulta</strong>
+        <span>Videoconsulta o presencial en Cancún</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="https://wa.me/529981516161?text=Hola%20Dra.%20Lili%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank" rel="noopener">
-    <span class="ico i-wa">
-      <svg class="brand" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>WhatsApp</strong>
-      <span>998 151 6161 · Consultas y dudas</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="/estudios-de-sueno">
+      <span class="ico i-teal">
+        <svg class="line" viewBox="0 0 24 24"><path d="M3 14h3l2-5 3 9 2.5-7 1.5 3h6"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Polisomnografía</strong>
+        <span>Estudio de sueño completo, en hotel Four Points</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="card rise" href="/estudios-de-sueno">
+      <span class="ico i-sand">
+        <svg class="line" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 019.5 3.5a8.5 8.5 0 1011 11z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Poligrafía respiratoria</strong>
+        <span>Estudio de sueño en tu casa, una noche</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="card rise" href="https://wa.me/529981516161?text=Hola%20Dra.%20Lili%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank" rel="noopener">
+      <span class="ico i-wa">
+        <svg class="brand" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>WhatsApp</strong>
+        <span>998 151 6161 · Consultas y dudas</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+
+  <!-- ===== EDUCACIÓN ===== -->
+  <p class="tag rise">Educación en sueño</p>
+
+  <div class="group">
+    <a class="card sand rise" href="https://wa.me/529981516161?text=Hola%20Dra.%20Lili%2C%20me%20interesa%20colaborar%20para%20educar%20en%20sue%C3%B1o" target="_blank" rel="noopener">
+      <span class="ico i-sand">
+        <svg class="line" viewBox="0 0 24 24"><path d="M9 17H6a3 3 0 01-3-3V8a3 3 0 013-3h5a3 3 0 013 3v6a3 3 0 01-3 3l-2 3z"/><path d="M17 8h1a3 3 0 013 3v5a3 3 0 01-3 3h-1"/></svg>
+      </span>
+      <span class="txt">
+        <strong>¿Te interesa colaborar para educar en sueño?</strong>
+        <span>Platiquemos · Charlas, empresas, medios y escuelas</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="card rise" href="https://quiz-escueladesueno.netlify.app" target="_blank" rel="noopener">
+      <span class="ico i-teal">
+        <svg class="line" viewBox="0 0 24 24"><path d="M9 4H7a2 2 0 00-2 2v13a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-2"/><rect x="9" y="2.5" width="6" height="3.5" rx="1"/><path d="M9 12l2 2 4-4"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Quiz del sueño</strong>
+        <span>¿Cómo duermes realmente? Descúbrelo en 5 minutos</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="card rise" href="/blog">
+      <span class="ico i-teal">
+        <svg class="line" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 015.5 4H11v16H5.5A1.5 1.5 0 014 18.5z"/><path d="M20 5.5A1.5 1.5 0 0018.5 4H13v16h5.5a1.5 1.5 0 001.5-1.5z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Blog de sueño y respiración</strong>
+        <span>Artículos con evidencia · Gratis</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="card rise" href="https://chat.whatsapp.com/IgQze1VZHI4AhZaHS7WQfL" target="_blank" rel="noopener">
+      <span class="ico i-wa">
+        <svg class="brand" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Comunidad Escuela de Sueño</strong>
+        <span>Grupo de WhatsApp · Únete gratis</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
 
   <!-- ===== PROGRAMAS ===== -->
-  <p class="tag rise">Programas y servicios</p>
+  <p class="tag rise">Programas y herramientas</p>
 
-  <a class="card rise" href="/estudios-de-sueno" rel="noopener">
-    <span class="ico i-cyan">
-      <svg class="line" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 019.5 3.5a8.5 8.5 0 1011 11z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Estudios de Sueño</strong>
-      <span>Polisomnografía y poligrafía en Cancún</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+  <div class="group">
+    <a class="card rise" href="/protocolo-ser">
+      <span class="ico i-teal">
+        <svg class="thin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Protocolo S·E·R</strong>
+        <span>Sueño · Equilibrio · Respiración</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="/protocolo-ser" rel="noopener">
-    <span class="ico i-teal">
-      <svg class="line" viewBox="0 0 24 24"><path d="M3 12h3l2.5-6 3.5 13 3-9 2 4h4"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Protocolo S·E·R</strong>
-      <span>Sueño · Equilibrio · Respiración</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="https://respiragym.netlify.app" target="_blank" rel="noopener">
+      <span class="ico i-teal">
+        <svg class="line" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 10-3-3M3 12h15a3 3 0 11-3 3M3 16h9"/></svg>
+      </span>
+      <span class="txt">
+        <strong>RespiraGym</strong>
+        <span>Terapia miofuncional guiada</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="/riviera-sleep" rel="noopener">
-    <span class="ico i-cyan">
-      <svg class="line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Riviera Sleep Program</strong>
-      <span>International patients · In English</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="https://entrena-respiracion.netlify.app/" target="_blank" rel="noopener">
+      <span class="ico i-teal">
+        <svg class="thin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Entrena tu Respiración</strong>
+        <span>Práctica guiada, día a día</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="/" rel="noopener">
-    <span class="ico i-teal">
-      <svg class="line" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M12 8v6M9 11h6"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Sitio web principal</strong>
-      <span>Servicios, consulta presencial y más</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="/riviera-sleep">
+      <span class="ico i-sand">
+        <svg class="line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Riviera Sleep Program</strong>
+        <span>International patients · In English</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <!-- ===== ESCUELA DE SUEÑO ===== -->
-  <p class="tag rise">Escuela de Sueño · gratis</p>
-
-  <a class="card rise" href="https://quiz-escueladesueno.netlify.app" target="_blank" rel="noopener">
-    <span class="ico i-sand">
-      <svg class="line" viewBox="0 0 24 24"><path d="M9 4H7a2 2 0 00-2 2v13a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-2"/><rect x="9" y="2.5" width="6" height="3.5" rx="1"/><path d="M9 12l2 2 4-4"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Quiz del sueño</strong>
-      <span>¿Cómo duermes realmente? Descúbrelo en 5 minutos</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
-
-  <a class="card rise" href="/blog" rel="noopener">
-    <span class="ico i-teal">
-      <svg class="line" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 015.5 4H11v16H5.5A1.5 1.5 0 014 18.5z"/><path d="M20 5.5A1.5 1.5 0 0018.5 4H13v16h5.5a1.5 1.5 0 001.5-1.5z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Blog de sueño y respiración</strong>
-      <span>Artículos con evidencia · Gratis</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
-
-  <a class="card rise" href="https://chat.whatsapp.com/IgQze1VZHI4AhZaHS7WQfL" target="_blank" rel="noopener">
-    <span class="ico i-wa">
-      <svg class="brand" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Comunidad Escuela de Sueño</strong>
-      <span>Grupo de WhatsApp · Únete gratis</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
-
-  <a class="card rise" href="https://respiragym.netlify.app" target="_blank" rel="noopener">
-    <span class="ico i-cyan">
-      <svg class="line" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 10-3-3M3 12h15a3 3 0 11-3 3M3 16h9"/></svg>
-    </span>
-    <span class="txt">
-      <strong>RespiraGym</strong>
-      <span>Terapia miofuncional guiada</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
-
-  <a class="card rise" href="https://entrena-respiracion.netlify.app/" target="_blank" rel="noopener">
-    <span class="ico i-cyan">
-      <svg class="line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Entrena tu Respiración</strong>
-      <span>Práctica guiada, día a día</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="/">
+      <span class="ico i-teal">
+        <svg class="line" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M12 8v6M9 11h6"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Sitio web principal</strong>
+        <span>Servicios, consulta presencial y más</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
 
   <!-- ===== REDES ===== -->
   <p class="tag rise">Redes sociales</p>
 
-  <a class="card rise" href="https://www.instagram.com/dra.lilipadilla" target="_blank" rel="noopener">
-    <span class="ico i-ig">
-      <svg class="brand" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Instagram</strong>
-      <span>@dra.lilipadilla</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+  <div class="group">
+    <a class="card rise" href="https://www.instagram.com/dra.lilipadilla" target="_blank" rel="noopener">
+      <span class="ico i-ig">
+        <svg class="brand" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Instagram</strong>
+        <span>@dra.lilipadilla</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="https://www.tiktok.com/@dra.lilipadilla" target="_blank" rel="noopener">
-    <span class="ico i-tt">
-      <svg class="brand" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V9.01a8.16 8.16 0 003.44.93V6.41a4.85 4.85 0 01-.51.28z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>TikTok</strong>
-      <span>@dra.lilipadilla</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="https://www.tiktok.com/@dra.lilipadilla" target="_blank" rel="noopener">
+      <span class="ico i-tt">
+        <svg class="brand" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V9.01a8.16 8.16 0 003.44.93V6.41a4.85 4.85 0 01-.51.28z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>TikTok</strong>
+        <span>@dra.lilipadilla</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="https://youtube.com/@dra.lilipadilla" target="_blank" rel="noopener">
-    <span class="ico i-yt">
-      <svg class="brand" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>YouTube</strong>
-      <span>@dra.lilipadilla</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="https://youtube.com/@dra.lilipadilla" target="_blank" rel="noopener">
+      <span class="ico i-yt">
+        <svg class="brand" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>YouTube</strong>
+        <span>@dra.lilipadilla</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
 
-  <a class="card rise" href="https://www.facebook.com/share/1ACbiLAU7S/" target="_blank" rel="noopener">
-    <span class="ico i-fb">
-      <svg class="brand" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </span>
-    <span class="txt">
-      <strong>Facebook</strong>
-      <span>@dralilipadilla</span>
-    </span>
-    <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-  </a>
+    <a class="card rise" href="https://www.facebook.com/share/1ACbiLAU7S/" target="_blank" rel="noopener">
+      <span class="ico i-fb">
+        <svg class="brand" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </span>
+      <span class="txt">
+        <strong>Facebook</strong>
+        <span>@dralilipadilla</span>
+      </span>
+      <span class="arw"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
 
   <!-- ===== PIE ===== -->
   <footer class="foot rise">
