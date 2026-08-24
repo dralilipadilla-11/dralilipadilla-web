@@ -12,8 +12,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Protocolo S·E·R | Sueño, Equilibrio y Respiración · Cancún</title>
-<meta name="description" content="Sueño y respiración en un mismo programa. Dra. Lili Padilla y Dr. Jorge Barbachano en Cancún: estudios de sueño, cirugía nasal funcional y reentrenamiento.">
-<meta name="keywords" content="protocolo SER, medicina del sueño Cancún, apnea del sueño, polisomnografía, cirugía nasal Cancún, respiración funcional, Dra. Lili Padilla, Dr. Jorge Barbachano">
+<meta name="description" content="El Protocolo S·E·R no es un tratamiento que recibes: es un programa que entrenas. Dra. Lili Padilla y Dr. Jorge Barbachano en Cancún — sueño, respiración y los 10 pilares de la salud funcional y la longevidad.">
+<meta name="keywords" content="protocolo SER, medicina del sueño Cancún, apnea del sueño, polisomnografía, cirugía nasal Cancún, respiración funcional, salud funcional, longevidad, 10 pilares, Dra. Lili Padilla, Dr. Jorge Barbachano">
 <!-- Favicon / icono de marca (lo que Google muestra junto al dominio) -->
 <meta name="theme-color" content="#007272">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="canonical" href="https://dralilipadilla.com/protocolo-ser">
 <meta property="og:title" content="Protocolo S·E·R | Sueño · Equilibrio · Respiración">
 <meta property="og:site_name" content="Dra. Lili Padilla">
-<meta property="og:description" content="Dos especialistas, un mismo programa. Entrena tu sueño y tu respiración con nosotros en Cancún.">
+<meta property="og:description" content="No es un tratamiento que recibes: es un programa que entrenas. Sueño, respiración y los 10 pilares de la salud funcional. Dra. Lili Padilla y Dr. Jorge Barbachano, Cancún.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dralilipadilla.com/protocolo-ser">
 <meta property="og:image" content="https://dralilipadilla.com/assets/img/team.jpg">
@@ -46,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "MedicalTherapy",
       "@id": "https://dralilipadilla.com/#protocolo-ser",
       "name": "Protocolo S·E·R — Sueño, Equilibrio y Respiración",
-      "description": "Programa por fases que une medicina del sueño, cirugía funcional nasal y reentrenamiento respiratorio, a cargo de la Dra. Lili Padilla y el Dr. Jorge Barbachano en Cancún.",
+      "description": "Programa por fases que se entrena, no se recibe. Une medicina del sueño, cirugía funcional nasal, reentrenamiento respiratorio y los 10 pilares de la salud funcional y la longevidad, a cargo de la Dra. Lili Padilla y el Dr. Jorge Barbachano en Cancún.",
       "url": "https://dralilipadilla.com/protocolo-ser",
       "provider": { "@id": "https://dralilipadilla.com/#clinica" },
       "relevantSpecialty": "Otolaryngologic",
@@ -126,6 +126,38 @@ a{color:var(--teal);text-decoration:none;}
 .ser-card p{font-size:.93rem;}
 .ser-nota{margin-top:2rem;font-size:1.05rem;font-style:italic;color:var(--teal-deep);text-align:center;}
 @media(max-width:860px){.ser-grid{grid-template-columns:1fr;}}
+
+/* PILARES */
+.pilares{background:var(--white);}
+.pilares-intro{max-width:760px;}
+.pilares-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem;}
+.pilar{position:relative;background:var(--sand);border-radius:16px;padding:1.5rem 1.5rem 1.5rem 1.5rem;border:1px solid transparent;transition:all .3s;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start;}
+.pilar:hover{border-color:var(--ice);transform:translateY(-2px);box-shadow:0 8px 24px rgba(7,30,48,.06);background:var(--white);}
+.pilar-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;line-height:1;color:var(--teal);font-weight:700;min-width:2.4rem;padding-top:.15rem;}
+.pilar-body h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--navy);font-weight:600;margin-bottom:.2rem;}
+.pilar-practica{font-size:.9rem;color:var(--text);margin-bottom:.55rem;}
+.pilar-medida{font-size:.78rem;color:var(--teal-deep);letter-spacing:.02em;border-top:1px dashed rgba(12,105,128,.25);padding-top:.55rem;}
+.pilar-medida strong{font-weight:600;color:var(--navy-soft);}
+.pilar-repite{background:linear-gradient(155deg,var(--navy) 0%,var(--teal-deep) 100%);color:var(--white);border:1px solid rgba(60,210,221,.2);}
+.pilar-repite:hover{background:linear-gradient(155deg,var(--navy) 0%,var(--teal-deep) 100%);border-color:var(--cyan);}
+.pilar-repite .pilar-num{color:var(--cyan);}
+.pilar-repite .pilar-body h4{color:var(--white);}
+.pilar-repite .pilar-practica{color:rgba(255,255,255,.82);}
+.pilar-repite .pilar-medida{color:var(--cyan);border-top-color:rgba(60,210,221,.3);}
+.pilar-repite .pilar-medida strong{color:var(--white);}
+.pilares-cita{margin-top:2.5rem;padding:1.75rem 1.75rem;border-left:3px solid var(--teal);background:var(--ice-soft);border-radius:0 14px 14px 0;}
+.pilares-cita p{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--navy);line-height:1.45;}
+.pilares-cita p strong{font-style:normal;font-weight:700;color:var(--teal-deep);}
+@media(max-width:860px){.pilares-grid{grid-template-columns:1fr;}}
+
+/* COLEGAS / UNIVERSAL */
+.colegas{background:var(--ice-soft);}
+.colegas .section-title em{color:var(--teal-deep);}
+.colegas .lead{max-width:760px;}
+.colegas-cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
+.colegas-cta a{display:inline-flex;align-items:center;gap:.4rem;background:var(--navy);color:var(--white);padding:.9rem 1.6rem;border-radius:50px;font-weight:600;font-size:.92rem;transition:all .3s;border:2px solid var(--navy);}
+.colegas-cta a:hover{background:var(--teal-deep);border-color:var(--teal-deep);transform:translateY(-2px);}
+.colegas-cta span{font-size:.85rem;color:var(--gray);}
 
 /* EQUIPO */
 .equipo{background:var(--navy);color:rgba(255,255,255,.78);}
@@ -232,7 +264,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-inner">
     <p class="hero-kicker">Protocolo S · E · R</p>
     <h1>Sueño, Equilibrio<br>y <em>Respiración.</em></h1>
-    <p class="hero-sub">Dos especialistas, un mismo programa. Unimos lo que sabemos del sueño y de la respiración para acompañarte a entrenarlos — y a vivir mejor mientras duermes.</p>
+    <p class="hero-sub">El Protocolo S·E·R no es un tratamiento que recibes — es un programa que entrenas. Dos especialistas, un mismo camino: reentrenar tu sueño y tu respiración para recuperar el equilibrio de tu salud, sin silenciar el problema de fondo con pastillas o parches.</p>
     <p class="hero-doctors">Dra. Liliana Padilla Islas &nbsp;·&nbsp; Dr. Jorge Barbachano Torres &nbsp;·&nbsp; Cancún, Q. Roo</p>
   </div>
 </section>
@@ -241,38 +273,135 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="section">
   <div class="section-inner">
     <p class="section-kicker">El punto de partida</p>
-    <h2 class="section-title">El sueño no se pierde.<br><em>Se comprende y se entrena.</em></h2>
-    <p class="lead">La mayoría de las personas llega por un síntoma concreto: ronquido, cansancio que no cede, despertares nocturnos, una nariz que nunca respira bien. Ese síntoma es la puerta de entrada — no el diagnóstico.</p>
-    <p class="lead">El Protocolo S·E·R existe porque el sueño y la respiración no son problemas separados: son el mismo sistema visto desde ángulos distintos. Y porque hay una habilidad detrás de dormir y respirar bien — una que se puede aprender, entrenar y sostener.</p>
-    <p class="lead">Eso es lo que compartimos contigo. No un tratamiento que te vuelve dependiente, sino la maestría que hemos adquirido sobre el sueño y la respiración, puesta a tu servicio.</p>
+    <h2 class="section-title">La salud no se compra.<br><em>Se entrena.</em></h2>
+    <p class="lead">La mayoría llega por un síntoma concreto: ronquido, cansancio que no cede, despertares nocturnos, una nariz que nunca respira bien. Ese síntoma es la puerta — no el diagnóstico.</p>
+    <p class="lead">El Protocolo S·E·R nació porque el sueño y la respiración no son problemas separados: son el mismo sistema visto desde ángulos distintos. Y porque detrás de dormir y respirar bien hay una <strong>habilidad que se puede aprender, entrenar y sostener.</strong></p>
+    <p class="lead">No te enseñamos a depender de un dispositivo, una molécula o una cirugía. Te enseñamos a leer tu propio sistema y a entrenarlo — para hoy, y para los próximos treinta años.</p>
   </div>
 </section>
 
-<!-- SER — tres dimensiones -->
+<!-- SER — dos puertas, un destino -->
 <section class="section ser">
   <div class="section-inner">
     <p class="section-kicker">Qué significa S·E·R</p>
-    <h2 class="section-title">Tres dimensiones<br><em>del mismo cuerpo.</em></h2>
-    <p class="lead">No son tres áreas repartidas entre dos médicos. Son tres formas de mirar a la misma persona — y las dos trabajamos las tres, juntos, en cada paciente.</p>
+    <h2 class="section-title">Dos puertas.<br><em>Un mismo destino.</em></h2>
+    <p class="lead">S·E·R no son tres áreas paralelas. Son <strong>dos entradas y un lugar al que se llega.</strong> Ningún médico es dueño de una letra — los dos vemos al mismo paciente completo, entre por donde entre.</p>
 
     <div class="ser-grid">
       <article class="ser-card">
         <div class="ser-letra">S</div>
-        <h3 class="ser-nombre">Sueño</h3>
-        <p>Cómo duermes de verdad: tu arquitectura del sueño, tu eficiencia, tu apnea, tu recuperación nocturna. El dato objetivo detrás del cansancio.</p>
+        <h3 class="ser-nombre">Sueño <span style="font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);display:block;margin-top:.15rem;">Puerta de entrada</span></h3>
+        <p>Por aquí llegan los pacientes de la Dra. Lili: ronquido, insomnio, sospecha de apnea, cansancio que no cede. Se mide, se comprende y se entrena.</p>
       </article>
       <article class="ser-card">
         <div class="ser-letra">E</div>
-        <h3 class="ser-nombre">Equilibrio</h3>
-        <p>Mirar el cuerpo completo, no el síntoma aislado. Buscamos que el sistema encuentre su equilibrio — porque eso es lo que sostiene los resultados en el tiempo.</p>
+        <h3 class="ser-nombre">Equilibrio <span style="font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);display:block;margin-top:.15rem;">El destino</span></h3>
+        <p>Lo que se recupera cuando el sistema completo empieza a funcionar. No es puerta de nadie — es el resultado del trabajo. Es hacia dónde te llevamos.</p>
       </article>
       <article class="ser-card">
         <div class="ser-letra">R</div>
-        <h3 class="ser-nombre">Respiración</h3>
-        <p>Cómo respiras, de día y de noche. La estructura de tu vía aérea y la función que la mueve. Cuando la respiración mejora, el sueño suele seguirla.</p>
+        <h3 class="ser-nombre">Respiración <span style="font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);display:block;margin-top:.15rem;">Puerta de entrada</span></h3>
+        <p>Por aquí llegan los pacientes del Dr. Jorge: nariz obstruida, boca abierta al dormir, respiración disfuncional. Estructura y función, siempre juntas.</p>
       </article>
     </div>
-    <p class="ser-nota">El sueño y la respiración son el mismo sistema. Nosotros lo miramos completo.</p>
+    <p class="ser-nota">La E es Equilibrio — nunca "Evaluación", nunca otra cosa. Es hacia dónde te llevamos, no una casilla que se palomea.</p>
+  </div>
+</section>
+
+<!-- 10 PILARES -->
+<section class="section pilares">
+  <div class="section-inner">
+    <p class="section-kicker">El terreno que se entrena</p>
+    <h2 class="section-title">Diez pilares.<br><em>Uno solo no basta.</em></h2>
+    <p class="lead pilares-intro">El Protocolo S·E·R se construye sobre diez pilares. <strong>Dormir</strong> y <strong>Respirar</strong> son dos de ellos — las puertas más accesibles y las que dan nombre al método. Los otros ocho pesan igual: sin ellos, no hay equilibrio que sostener.</p>
+    <p class="lead pilares-intro">Se integran a tu vida real, regla del 80/20. <strong>Y cada pilar tiene una práctica y una medida</strong> — porque en el S·E·R no se recomienda nada a ciegas: se mide, se interviene y se vuelve a medir en el tiempo.</p>
+
+    <div class="pilares-grid">
+      <article class="pilar">
+        <div class="pilar-num">01</div>
+        <div class="pilar-body">
+          <h4>Dormir</h4>
+          <p class="pilar-practica">Rutina y arquitectura del sueño.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> IAH, SpO₂ mínima, T90, eficiencia · poligrafía o PSG · Epworth</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">02</div>
+        <div class="pilar-body">
+          <h4>Sol</h4>
+          <p class="pilar-practica">25 minutos de luz al despertar.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> anclaje fótico matutino · cronotipo</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">03</div>
+        <div class="pilar-body">
+          <h4>Respirar</h4>
+          <p class="pilar-practica">Diafragmática, nasal, pausada.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> BOLT · respiración nasal · permeabilidad de la vía aérea</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">04</div>
+        <div class="pilar-body">
+          <h4>Meditar</h4>
+          <p class="pilar-practica">10 minutos conscientes al día.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> variabilidad de la frecuencia cardíaca (HRV)</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">05</div>
+        <div class="pilar-body">
+          <h4>Nutrir</h4>
+          <p class="pilar-practica">Microbioma y balance energético.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> InBody · glucosa, insulina, HOMA-IR · perfil lipídico avanzado</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">06</div>
+        <div class="pilar-body">
+          <h4>Ejercitar</h4>
+          <p class="pilar-practica">Fuerza y VO₂.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> Cooper · dinamometría · FC de recuperación a 1′ · movilidad</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">07</div>
+        <div class="pilar-body">
+          <h4>Desintoxicar</h4>
+          <p class="pilar-practica">Una cosa menos, cada día.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> hepático (ALT, AST, GGT, FA) · inflamatorio (PCR-us)</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">08</div>
+        <div class="pilar-body">
+          <h4>Aprender</h4>
+          <p class="pilar-practica">Siempre, de todo.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> curiosidad activa como hábito sostenido</p>
+        </div>
+      </article>
+      <article class="pilar">
+        <div class="pilar-num">09</div>
+        <div class="pilar-body">
+          <h4>Agradecer</h4>
+          <p class="pilar-practica">Diario o agenda.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> foco atencional y regulación emocional</p>
+        </div>
+      </article>
+      <article class="pilar pilar-repite">
+        <div class="pilar-num">10</div>
+        <div class="pilar-body">
+          <h4>Repetir</h4>
+          <p class="pilar-practica">Hazlo fácil, accesible, satisfactorio y gratificante.</p>
+          <p class="pilar-medida"><strong>Medimos:</strong> adherencia — la métrica del programa entero</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="pilares-cita">
+      <p><strong>Nunca te detengas.</strong> La consistencia es la intervención. <em>Repetir</em> cierra el círculo — no es un adorno, es lo que convierte diez buenos hábitos en una vida distinta.</p>
+    </div>
   </div>
 </section>
 
@@ -286,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       A Jorge lo buscan para respirar mejor por la nariz. A mí, para dormir mejor. Nos dimos cuenta de que trabajábamos al mismo paciente sin saberlo — así que decidimos hacerlo juntos.
     </blockquote>
 
-    <p>Cada quien tiene su puerta de entrada. Pero una vez dentro, no te pasamos de un consultorio a otro: unimos lo que cada uno sabe para diseñar contigo un plan que avanza por fases, según lo que tu caso vaya pidiendo. Muchos pacientes terminan pasando por los dos — y por eso lo pensamos así desde el principio.</p>
+    <p>Cada quien tiene su puerta. Pero una vez adentro, no te pasamos de un consultorio a otro: los dos vemos al mismo paciente completo sobre los mismos diez pilares. Lo único que cambia entre uno y otro es el motivo de la primera cita.</p>
 
     <div class="equipo-grid">
       <div class="medico">
@@ -331,29 +460,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- LO QUE ANALIZAMOS -->
 <section class="section analizamos">
   <div class="section-inner">
-    <p class="section-kicker">Lo que miramos</p>
-    <h2 class="section-title">Datos que leemos<br><em>hacia tu mejor versión.</em></h2>
-    <p class="lead">No leemos un resultado solo contra el rango "normal": lo leemos hacia tu óptimo — el punto donde no solo no estás enfermo, sino que rindes y te recuperas mejor. Esto es una parte de lo que observamos según tu caso.</p>
+    <p class="section-kicker">Salud funcional y longevidad</p>
+    <h2 class="section-title">No hacia el "normal".<br><em>Hacia tu óptimo.</em></h2>
+    <p class="lead">En medicina convencional un resultado es "normal" o "anormal". En medicina funcional y de longevidad hay un tercer punto: <strong>tu óptimo</strong> — el rango donde no solo no estás enfermo, sino donde rindes, te recuperas y envejeces mejor. Ahí es donde leemos tus datos.</p>
 
     <div class="analizamos-grid">
       <div class="valor">
         <h4>Tu sueño</h4>
-        <p>Qué tan eficiente es tu noche, si hay apnea, cuánto oxígeno mantienes, cómo se recupera tu cuerpo mientras duermes.</p>
+        <p>Eficiencia, apnea, oxigenación, cómo se repara tu cuerpo mientras duermes. El dato objetivo detrás del cansancio.</p>
       </div>
       <div class="valor">
         <h4>Tu respiración</h4>
-        <p>Cómo entra el aire por tu nariz y cómo lo mueves. La estructura de tu vía aérea y la mecánica que la sostiene.</p>
+        <p>BOLT, patrón, permeabilidad nasal, estructura y función de tu vía aérea. Estructura y mecánica, siempre juntas.</p>
       </div>
       <div class="valor">
         <h4>Tu cuerpo</h4>
-        <p>Composición corporal y capacidad funcional: fuerza, resistencia, cómo responde tu corazón al esfuerzo y al reposo.</p>
+        <p>Composición corporal, fuerza, VO₂max, HRV, cómo responde tu corazón al esfuerzo y al reposo.</p>
       </div>
       <div class="valor">
         <h4>Tus laboratorios</h4>
-        <p>Los marcadores que hablan de tu metabolismo, tu inflamación y tu equilibrio hormonal — leídos hacia la longevidad.</p>
+        <p>Metabólico avanzado, inflamación, perfil hepático, marcadores hormonales — leídos hacia la longevidad, no solo hacia el diagnóstico.</p>
       </div>
     </div>
     <p class="analizamos-cierre">Cada dato lo traducimos a algo que puedes entrenar. Ese es el corazón del protocolo.</p>
+  </div>
+</section>
+
+<!-- COLEGAS / UNIVERSAL -->
+<section class="section colegas">
+  <div class="section-inner">
+    <p class="section-kicker">Para tu médico también</p>
+    <h2 class="section-title">El sueño se ve igual<br><em>desde cualquier especialidad.</em></h2>
+    <p class="lead">Un psiquiatra necesita saber cómo duerme su paciente. Un neurólogo pediatra, también. Un internista, un cardiólogo, un endocrinólogo: <strong>todos tratan pacientes cuyo sueño determina el resultado de su tratamiento</strong>, y casi ninguno tiene forma de medirlo.</p>
+    <p class="lead">El Protocolo S·E·R se llama así porque nosotros entramos por esas puertas — pero su uso no depende de la puerta. Cualquier colega puede aplicarlo con sus pacientes desde su propio eje <strong>sin dejar de ser quien lleva ese caso.</strong></p>
+    <div class="colegas-cta">
+      <a href="https://wa.me/529981516161?text=Soy%20m%C3%A9dico%2C%20me%20interesa%20integrar%20el%20Protocolo%20S%C2%B7E%C2%B7R%20a%20mi%20consulta" target="_blank" rel="noopener">Integrar S·E·R a mi consulta →</a>
+      <span>Escríbenos por WhatsApp y te acompañamos.</span>
+    </div>
   </div>
 </section>
 
