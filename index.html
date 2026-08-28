@@ -158,6 +158,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
+  <!-- ===================== ANNOUNCEMENT BANNER ===================== -->
+  <style>
+    .top-banner{background:linear-gradient(90deg,#0c6980 0%,#008a8a 100%);color:#fff;padding:.7rem 1rem;text-align:center;font-family:"Nunito","Mulish",system-ui,sans-serif;font-size:.92rem;position:relative;z-index:1000;line-height:1.4;}
+    .top-banner a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:center;}
+    .top-banner .tb-badge{background:#c89b62;color:#071e30;font-weight:700;padding:.18rem .6rem;border-radius:999px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;}
+    .top-banner .tb-price{font-weight:700;color:#c0f0f7;}
+    .top-banner .tb-arrow{transition:transform .2s ease;display:inline-block;}
+    .top-banner a:hover .tb-arrow{transform:translateX(4px);}
+    @media(max-width:640px){.top-banner{font-size:.85rem;padding:.6rem .75rem;}.top-banner .tb-badge{font-size:.68rem;}}
+  </style>
+  <div class="top-banner" role="region" aria-label="Anuncio de paquete nuevo">
+    <a href="/diagnostico-sueno">
+      <span class="tb-badge">Nuevo</span>
+      <span>Paquete Diagnóstico de Sueño · Consulta en línea + estudio en Cancún</span>
+      <span class="tb-price">$6,900</span>
+      <span class="tb-arrow">→</span>
+    </a>
+  </div>
+
   <!-- ===================== SPLASH ===================== -->
   <div class="splash" data-splash aria-hidden="true">
     <div class="splash-inner">
@@ -283,6 +302,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="section-desc">Desde una videoconsulta hasta cirugía de vía aérea. El camino lo decidimos juntos.</p>
         </div>
         <div class="servicios-grid" data-servicios>
+          <!-- Paquete Diagnóstico Integral (destacado) -->
+          <article class="servicio-card reveal" data-reveal data-tilt style="border:2px solid #00a8a8;background:linear-gradient(180deg,rgba(0,168,168,.06),rgba(0,168,168,0) 60%);position:relative;">
+            <div class="servicio-card-accent"></div>
+            <span style="position:absolute;top:1rem;right:1rem;background:#c89b62;color:#071e30;padding:.2rem .65rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Nuevo</span>
+            <span class="servicio-icon" style="color:#0c6980;">◆</span>
+            <h3 class="servicio-nombre">Paquete Diagnóstico de Sueño</h3>
+            <p class="servicio-precio">$6,900 MXN</p>
+            <p class="servicio-desc">Consulta médica por video (desde cualquier parte del país) + estudio del sueño en casa (recogida en Hospital Galenia, Cancún) + consulta de resultados con plan. Tu diagnóstico completo con la misma médica de principio a fin.</p>
+            <a class="servicio-cta" href="/diagnostico-sueno" aria-label="Ver el Paquete Diagnóstico Integral del Sueño">Ver el paquete →</a>
+          </article>
           <!-- Consulta -->
           <article class="servicio-card reveal" data-reveal data-tilt>
             <div class="servicio-card-accent"></div>
