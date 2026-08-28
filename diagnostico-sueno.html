@@ -195,6 +195,11 @@ h2 em,h1 em{font-style:italic;color:var(--gold-500);}
 .include-card.dark .include-role{color:var(--gold-200);}
 .include-card p{font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:8px 0 0;}
 .include-card.dark p{color:#b9cbd5;}
+.include-card--photo{padding:0;overflow:hidden;}
+.include-card--photo .include-photo{aspect-ratio:16/10;background:var(--navy-800);overflow:hidden;}
+.include-card--photo .include-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.include-card--photo:hover .include-photo img{transform:scale(1.03);}
+.include-card--photo .include-photo-body{padding:24px 26px 30px;display:flex;flex-direction:column;gap:10px;}
 
 /* ============ TIMELINE ============ */
 .steps-intro{max-width:900px;margin-top:24px;}
@@ -320,7 +325,7 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
       <a class="btn btn-primary" href="https://calendly.com/dralilianapadilla/diagnostico-integral-del-sueno-en-linea" target="_blank" rel="noopener">Reservar mi paquete</a>
       <a class="btn btn-ghost" href="#como-funciona">Ver cómo funciona</a>
     </div>
-    <p class="hero-meta">Consulta médica por video desde cualquier parte del país · Equipo del estudio con recogida en Hospital Galenia, Cancún (o coordinado en tu hotel de Riviera Maya).</p>
+    <p class="hero-meta">Consulta médica por video desde cualquier parte del país · Equipo del estudio con recogida en Hospital Galenia, Cancún.</p>
   </div>
 </section>
 
@@ -329,7 +334,7 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
   <div class="wrap two-col">
     <div>
       <span class="eyebrow">Cuándo pensar en un estudio de sueño</span>
-      <h2>Tu cuerpo lleva tiempo <em>dándote pistas.</em></h2>
+      <h2>Tu cuerpo lleva tiempo <em>dándote señales.</em></h2>
     </div>
     <div class="col-stack">
       <p>El sueño no es solo descanso. Es cuando tu cuerpo se repara, tu cerebro consolida memoria y tu metabolismo se ordena. Cuando algo no funciona bien de noche, se nota de día: <strong>cansancio que no cede aunque duermas ocho horas</strong>, memoria que falla, presión arterial que sube, ánimo que baja.</p>
@@ -361,11 +366,16 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
         <h3>Evaluación 45 min</h3>
         <p>Videollamada con la Dra. Lili Padilla. Revisamos tu historia clínica, síntomas actuales y estudios previos si los tienes. Definimos qué buscamos con el estudio y qué preguntas queremos responder.</p>
       </article>
-      <article class="include-card dark">
-        <div class="include-num">2</div>
-        <div class="include-role">Estudio del sueño</div>
-        <h3>Poligrafía en tu casa</h3>
-        <p>Un equipo médico portátil registra durante la noche tu respiración, oxígeno en sangre, ritmo cardíaco y posición del cuerpo. Duermes en tu propia cama, una sola noche. La Dra. Padilla interpreta el registro personalmente en 5–7 días.</p>
+      <article class="include-card dark include-card--photo">
+        <div class="include-photo">
+          <img src="assets/img/estudios/poligrafia.jpg" alt="Equipo de poligrafía respiratoria a domicilio" loading="lazy" decoding="async">
+        </div>
+        <div class="include-photo-body">
+          <div class="include-num">2</div>
+          <div class="include-role">Estudio del sueño</div>
+          <h3>Poligrafía en tu casa</h3>
+          <p>Un equipo médico portátil registra durante la noche tu respiración, oxígeno en sangre, ritmo cardíaco y posición del cuerpo. Duermes en tu propia cama, una sola noche. La Dra. Padilla interpreta el registro personalmente en 5–7 días.</p>
+        </div>
       </article>
       <article class="include-card">
         <div class="include-num">3</div>
@@ -383,12 +393,12 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
     <span class="eyebrow">Cómo funciona</span>
     <h2 style="margin-bottom:24px;">De la reserva al plan clínico, <em>en 10–14 días.</em></h2>
     <div class="steps-intro">
-      <p>Cada paso está pensado para reducir tu carga logística al mínimo. La consulta médica se hace por video desde cualquier ciudad del país. El equipo del estudio del sueño se recoge y devuelve en Hospital Galenia, Cancún — o coordinamos entrega en tu hotel si estás en la zona Riviera Maya.</p>
+      <p>Cada paso está pensado para reducir tu carga logística al mínimo. La consulta médica se hace por video desde cualquier ciudad del país. El equipo del estudio del sueño se recoge y devuelve en Hospital Galenia, Cancún.</p>
     </div>
     <div class="steps-grid">
       <article class="step"><div class="num">01</div><h4>Reservas y pagas</h4><p>Eliges día y hora en Calendly. Recibes por WhatsApp tu Cuestionario de Valoración S·E·R.</p></article>
       <article class="step"><div class="num">02</div><h4>Consulta médica por video</h4><p>45 min por Google Meet desde cualquier ciudad. Revisamos historia, síntomas y estudios previos.</p></article>
-      <article class="step"><div class="num">03</div><h4>Recoges el equipo</h4><p>En Hospital Galenia, Consultorio 401-A, Cancún. Te entregamos el equipo con instrucciones claras. Si estás en Riviera Maya, coordinamos entrega en tu hotel.</p></article>
+      <article class="step"><div class="num">03</div><h4>Recoges el equipo</h4><p>En Hospital Galenia, Consultorio 401-A, Cancún. Te entregamos el equipo con instrucciones claras y una videollamada breve si necesitas ayuda para colocarlo.</p></article>
       <article class="step"><div class="num">04</div><h4>Duermes una noche</h4><p>Con el equipo puesto, en tu propia cama. Una sola noche es suficiente.</p></article>
       <article class="step"><div class="num">05</div><h4>Devuelves el equipo</h4><p>Al día siguiente hábil, en Hospital Galenia. La Dra. Padilla interpreta personalmente en 5–7 días.</p></article>
       <article class="step"><div class="num">06</div><h4>Consulta de resultados</h4><p>Segunda videollamada + reporte escrito con tu diagnóstico y plan clínico específico.</p></article>
@@ -411,7 +421,7 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
       <li>Usas CPAP y quieres verificar si está bien titulado</li>
       <li>Estás en perimenopausia con alteraciones del sueño</li>
       <li>Tienes rendimiento deportivo o profesional en carga alta y buscas optimizar recuperación</li>
-      <li>Puedes coordinar la recogida del equipo en Hospital Galenia o en tu hotel Riviera Maya</li>
+      <li>Puedes coordinar la recogida y devolución del equipo en Hospital Galenia, Cancún</li>
     </ul>
     <p class="fit-alt">Si tu situación es distinta — necesitas un estudio completo con electroencefalograma, buscas segunda opinión de un estudio ya hecho, o consultas para un menor — abajo encuentras la ruta específica para tu caso.</p>
   </div>
@@ -465,7 +475,7 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
       <article class="why-card">
         <div class="role">Especialización</div>
         <h4>ORL + Medicina del Sueño</h4>
-        <p>Cédula 7057757 UAG · Cédula de Especialidad 9181490 UNAM. Vía aérea y sueño leídos en la misma consulta — no dos referencias separadas.</p>
+        <p>Cédula Profesional 7057757 · Cédula de Especialidad 9181490. Vía aérea y sueño leídos en la misma consulta — no dos referencias separadas.</p>
       </article>
       <article class="why-card">
         <div class="role">Método propio</div>
@@ -474,13 +484,8 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
       </article>
       <article class="why-card">
         <div class="role">Continuidad clínica</div>
-        <h4>La misma médica</h4>
-        <p>La consulta, el estudio y los resultados son un solo caso. Sin call center, sin transferencias, sin empezar de cero cada llamada.</p>
-      </article>
-      <article class="why-card">
-        <div class="role">Independencia</div>
-        <h4>No vendo equipos</h4>
-        <p>Si tu diagnóstico indica CPAP, te oriento sobre proveedores y qué equipo aplica a tu caso. Criterio clínico independiente de la venta.</p>
+        <h4>Tu doctora de sueño</h4>
+        <p>La consulta, el estudio y los resultados son un solo caso — con la misma médica de principio a fin. Sin call center, sin transferencias, sin empezar de cero cada llamada.</p>
       </article>
     </div>
   </div>
@@ -498,7 +503,7 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
       </details>
       <details class="faq-item">
         <summary>¿Vivo fuera de Cancún, puedo hacer el paquete completo?</summary>
-        <div class="faq-answer">La consulta médica es por Google Meet desde cualquier parte del país — no necesitas venir. Para el estudio del sueño, actualmente el equipo se recoge y devuelve en Hospital Galenia (Cancún). Si estás en zona Riviera Maya, podemos coordinar entrega en tu hotel. Si vives lejos y solo te interesa consulta médica sin estudio, puedes agendar la <a href="https://calendly.com/dralilianapadilla/teleconsulta-especializada-dra-lili-padilla">Consulta médica en línea</a> por separado. Estamos evaluando llevar el estudio a más ciudades — escríbenos si te interesa que llegue a la tuya.</div>
+        <div class="faq-answer">La consulta médica es por Google Meet desde cualquier parte del país — no necesitas venir. Para el estudio del sueño, actualmente el equipo se recoge y devuelve en Hospital Galenia (Cancún). Si vives lejos y solo te interesa la consulta médica sin el estudio, puedes agendar la <a href="https://calendly.com/dralilianapadilla/teleconsulta-especializada-dra-lili-padilla">Consulta médica en línea</a> por separado. Estamos evaluando llevar el estudio a más ciudades — escríbenos si te interesa que llegue a la tuya.</div>
       </details>
       <details class="faq-item">
         <summary>¿Cuánto tiempo tarda todo el proceso?</summary>
@@ -538,7 +543,7 @@ footer{background:var(--navy-800);padding:40px 0 44px;border-top:1px solid rgba(
       <a class="btn btn-primary" href="https://calendly.com/dralilianapadilla/diagnostico-integral-del-sueno-en-linea" target="_blank" rel="noopener">Reservar mi paquete</a>
       <a class="btn btn-ghost" href="https://wa.me/529981516161?text=Hola%20Dra.%20Lili%2C%20me%20interesa%20el%20Paquete%20Diagn%C3%B3stico%20de%20Sue%C3%B1o" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
     </div>
-    <p class="cta-note">Consulta médica desde cualquier parte del país. Equipo del estudio con recogida en Hospital Galenia, Cancún — o coordinado en tu hotel de Riviera Maya.</p>
+    <p class="cta-note">Consulta médica desde cualquier parte del país. Equipo del estudio con recogida en Hospital Galenia, Cancún.</p>
   </div>
 </section>
 
