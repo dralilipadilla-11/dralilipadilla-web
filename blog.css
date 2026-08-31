@@ -139,6 +139,18 @@ a{color:var(--teal);text-decoration:none;}
 .art-body li::marker{color:var(--teal);}
 .art-body hr{border:0;height:1px;background:rgba(7,30,48,.1);margin:3rem 0;}
 
+/* ---------- Fotos dentro del articulo ---------- */
+/* Las imagenes se sirven a 1200x900 y se muestran a ~700 px de ancho: el
+   doble, para que no se vean borrosas en pantallas retina. width/height van
+   en el HTML para que el navegador reserve el espacio antes de descargarlas
+   y el texto no brinque mientras cargan. */
+.art-foto{margin:2.5rem 0;}
+.art-foto img{width:100%;height:auto;border-radius:16px;display:block;box-shadow:0 8px 28px rgba(7,30,48,.1);}
+.art-foto figcaption{margin-top:.7rem;font-size:.85rem;color:var(--gray);line-height:1.5;font-style:italic;}
+
+/* Foto de apertura: va pegada al inicio del cuerpo, sin margen superior. */
+.art-foto--hero{margin-top:0;margin-bottom:2.75rem;}
+
 /* Cita destacada */
 .pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.35rem,3vw,1.75rem);font-style:italic;line-height:1.42;color:var(--teal-deep);border-left:3px solid var(--teal);padding:.25rem 0 .25rem 1.75rem;margin:2.75rem 0;}
 
