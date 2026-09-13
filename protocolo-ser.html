@@ -249,6 +249,62 @@ h2 em,h1 em{font-style:italic;color:var(--gold-500);}
 .programa figure figcaption em{font-style:italic;color:var(--gold-500);}
 .programa a.inline-link{color:var(--teal-600);border-bottom:1px solid var(--teal-500);}
 
+/* ============ FASES · DE LA CONSULTA A LA COMUNIDAD ============ */
+#fases{scroll-margin-top:72px;}
+.f0{--c:#00a8a8;--ct:#007272;}
+.f1{--c:#0c6980;--ct:#0c6980;}
+.f2{--c:#071e30;--ct:#071e30;}
+.f3{--c:#b3854a;--ct:#8a6321;}
+.ruta{display:grid;grid-template-columns:minmax(180px,220px) 64px minmax(0,1fr);align-items:center;margin:clamp(36px,4.5vw,56px) 0 0;}
+.ruta-puerta{background:var(--navy-900);border-radius:20px;padding:24px 22px;box-shadow:0 14px 34px rgba(7,30,48,.16);}
+.ruta-kicker{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-400);}
+.ruta-puerta strong{display:block;font-family:var(--font-serif);font-weight:400;font-size:25px;line-height:1.12;letter-spacing:-.015em;color:#fff;margin:10px 0 0;}
+.ruta-puerta p{font-size:14.5px;line-height:1.5;color:#b9cbd5;margin:8px 0 0;}
+.ruta-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.ruta-chips span{font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff;border:1px solid rgba(60,210,221,.45);border-radius:999px;padding:3px 10px;}
+.ruta-flecha{position:relative;height:2px;margin:0 10px 0 6px;background:var(--teal-500);}
+.ruta-flecha::after{content:"";position:absolute;right:0;top:50%;width:11px;height:11px;border-top:2px solid var(--teal-500);border-right:2px solid var(--teal-500);transform:translateY(-50%) rotate(45deg);}
+.ruta-comunidad{background:#fff;border:1.5px dashed rgba(0,168,168,.5);border-radius:28px;padding:22px clamp(18px,2.6vw,34px) 24px;}
+.ruta-comunidad-head{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--site-teal);}
+.ruta-fases{list-style:none;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0 0;}
+.ruta-fases::before{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:2px;background:linear-gradient(90deg,#00a8a8,#0c6980 38%,#071e30 64%,#b3854a);opacity:.45;}
+.ruta-fase{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.ruta-n{position:relative;z-index:1;width:56px;height:56px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--c);color:#fff;font-family:var(--font-serif);font-size:26px;line-height:1;box-shadow:0 0 0 6px #fff,0 10px 22px rgba(7,30,48,.16);}
+.ruta-txt{display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:14px;}
+.ruta-etq{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ct);}
+.ruta-txt strong{font-family:var(--font-serif);font-weight:400;font-size:23px;line-height:1.1;color:var(--navy-900);}
+.ruta-accion{font-size:14.5px;line-height:1.45;color:var(--text-body);max-width:22ch;}
+.ruta-cuando{font-size:12.5px;font-weight:600;color:var(--text-muted);margin-top:2px;}
+.ruta-vuelta{font-size:12.5px;line-height:1.45;color:var(--ct);margin-top:4px;max-width:22ch;}
+.ruta-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;margin:24px 0 0;padding-top:16px;border-top:1px solid var(--sand-200);}
+.ruta-pie p{font-size:15px;line-height:1.55;color:var(--text-body);max-width:64ch;}
+.ruta-pie a{font-size:14px;font-weight:700;color:var(--teal-600);border-bottom:1px solid var(--teal-500);padding-bottom:2px;white-space:nowrap;}
+.fases-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(28px,3.5vw,44px);}
+@media(max-width:1100px){.fases-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:620px){.fases-grid{grid-template-columns:minmax(0,1fr);}}
+.fase-card{background:#fff;border-radius:16px;border-top:3px solid var(--c);padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 32px rgba(7,30,48,.05);}
+.fase-top{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.fase-etq{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ct);}
+.fase-cuando{font-size:12.5px;font-weight:600;color:var(--text-muted);background:var(--cream-100);border-radius:999px;padding:3px 10px;white-space:nowrap;}
+.fase-card h3{font-size:26px;color:var(--navy-900);margin:0;}
+.fase-card p{font-size:15.5px;line-height:1.62;color:var(--text-body);}
+.fase-card p.fase-recibes{font-size:14.5px;line-height:1.58;color:var(--text-muted);margin-top:auto;padding-top:12px;border-top:1px solid var(--sand-200);}
+.fase-recibes strong{color:var(--navy-900);}
+.fases-nota{font-size:15px;line-height:1.6;color:var(--text-muted);margin:26px 0 0;padding-left:16px;border-left:2px solid var(--gold-500);max-width:74ch;}
+@media(max-width:980px){
+  .ruta{grid-template-columns:minmax(0,1fr);}
+  .ruta-puerta{max-width:520px;}
+  .ruta-flecha{width:2px;height:40px;margin:6px 0 6px 46px;}
+  .ruta-flecha::after{right:auto;top:auto;left:50%;bottom:0;transform:translateX(-50%) rotate(135deg);}
+  .ruta-fases{grid-template-columns:minmax(0,1fr);gap:0;}
+  .ruta-fases::before{display:none;}
+  .ruta-fase{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:18px;align-items:start;text-align:left;padding:0 0 22px;}
+  .ruta-fase:not(:last-child)::after{content:"";position:absolute;left:27px;top:56px;bottom:0;width:2px;background:var(--c);opacity:.35;}
+  .ruta-fase:last-child{padding-bottom:0;}
+  .ruta-txt{align-items:flex-start;margin-top:2px;}
+  .ruta-accion,.ruta-vuelta{max-width:none;}
+}
+
 /* ============ VALORES / SALUD FUNCIONAL ============ */
 .valores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:36px;}
 .valor{background:#fff;border-radius:16px;padding:24px 24px;border-top:3px solid var(--teal-500);}
@@ -506,7 +562,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Se construye <em>contigo.</em></h2>
     </div>
     <div class="col-stack">
-      <p>El Protocolo S·E·R no es un paquete cerrado ni un mismo camino para todos. Es un programa que avanza por fases: empezamos por donde tus datos piden primero y sumamos el siguiente paso solo cuando la evidencia lo justifica.</p>
+      <p>El Protocolo S·E·R no es un paquete cerrado ni un mismo camino para todos. Es un programa que <a class="inline-link" href="#fases">avanza por fases</a>: empezamos por donde tus datos piden primero y sumamos el siguiente paso solo cuando la evidencia lo justifica.</p>
       <p>Algunos vienen por un <a class="inline-link" href="/estudios-de-sueno">estudio de sueño</a> y ahí termina lo que necesitan. Otros descubren que su historia es más larga. Tú decides hasta dónde — nosotros te mostramos el mapa.</p>
     </div>
   </div>
@@ -516,6 +572,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cap-inner"><p>Se mide, se interviene y <em>se vuelve a medir.</em></p></div>
     </figcaption>
   </figure>
+</section>
+
+<!-- FASES · DE LA CONSULTA A LA COMUNIDAD -->
+<section class="section section-band" id="fases">
+  <div class="wrap">
+    <span class="eyebrow">Tu camino en el protocolo</span>
+    <h2 style="margin-bottom:22px;">Llegas a consulta. <em>Te unes a una comunidad.</em></h2>
+    <p class="lead" style="max-width:70ch;">El Protocolo S·E·R avanza por fases, y no las recorres solo: desde tu primera cita entras a la comunidad de la Escuela de Sueño. Cada fase tiene un propósito, algo que te llevas y un momento para volver a medir.</p>
+
+    <figure class="ruta" aria-label="Recorrido del Protocolo S·E·R. Llegas a tu primera consulta por el sueño o por la respiración y entras a la comunidad de la Escuela de Sueño. Ahí avanzas por cuatro fases: Cimiento, Afinar, Seguimiento y Mantenimiento.">
+      <div class="ruta-puerta">
+        <span class="ruta-kicker">Llegas</span>
+        <strong>Tu primera consulta</strong>
+        <p>Entras por lo que hoy te trae.</p>
+        <div class="ruta-chips"><span>Sueño</span><span>Respiración</span></div>
+      </div>
+      <div class="ruta-flecha" aria-hidden="true"></div>
+      <div class="ruta-comunidad">
+        <div class="ruta-comunidad-head">
+          <svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke="#00a8a8" stroke-width="1.6" aria-hidden="true"><circle cx="13" cy="13" r="11"></circle><circle cx="19" cy="7" r="2.4" fill="#00a8a8" stroke="none"></circle></svg>
+          <span>Comunidad · Escuela de Sueño</span>
+        </div>
+        <ol class="ruta-fases">
+          <li class="ruta-fase f0"><span class="ruta-n" aria-hidden="true">0</span><div class="ruta-txt"><span class="ruta-etq">Fase 0</span><strong>Cimiento</strong><span class="ruta-accion">Te valoramos y medimos lo que hace falta.</span><span class="ruta-cuando">Hasta tus resultados</span></div></li>
+          <li class="ruta-fase f1"><span class="ruta-n" aria-hidden="true">1</span><div class="ruta-txt"><span class="ruta-etq">Fase 1</span><strong>Afinar</strong><span class="ruta-accion">Empiezas por lo que tu caso pide primero.</span><span class="ruta-cuando">Semanas 4 a 8</span></div></li>
+          <li class="ruta-fase f2"><span class="ruta-n" aria-hidden="true">2</span><div class="ruta-txt"><span class="ruta-etq">Fase 2</span><strong>Seguimiento</strong><span class="ruta-accion">Volvemos a medir y comparamos contra tu inicio.</span><span class="ruta-cuando">Mes 3</span></div></li>
+          <li class="ruta-fase f3"><span class="ruta-n" aria-hidden="true">3</span><div class="ruta-txt"><span class="ruta-etq">Fase 3</span><strong>Mantenimiento</strong><span class="ruta-accion">Sostienes lo que ya entrenaste.</span><span class="ruta-cuando">Después de los 3 meses</span><span class="ruta-vuelta">↻ Si algo cambia, regresas a la fase que toque.</span></div></li>
+        </ol>
+        <div class="ruta-pie">
+          <p>Desde tu primera consulta no entrenas solo: en la Escuela de Sueño hablamos de sueño y respiración cada semana, con gente que entrena lo mismo que tú.</p>
+          <a href="https://chat.whatsapp.com/IgQze1VZHI4AhZaHS7WQfL" target="_blank" rel="noopener">Entrar a la comunidad →</a>
+        </div>
+      </div>
+    </figure>
+
+    <div class="fases-grid">
+      <article class="fase-card f0">
+        <div class="fase-top"><span class="fase-etq">Fase 0</span><span class="fase-cuando">Hasta tus resultados</span></div>
+        <h3>Cimiento</h3>
+        <p>Antes de la cita llenas tu cuestionario. En consulta revisamos tu historia completa y, en persona, tu nariz y tu garganta. Pedimos solo los estudios que cambian una decisión: sueño, laboratorio o composición corporal.</p>
+        <p class="fase-recibes"><strong>Te llevas:</strong> tu hoja del Protocolo S·E·R con cuatro cosas que puedes empezar hoy y, con tus resultados, tu documento PROTOCOLO SER: la interpretación de tus estudios y tu plan por fases.</p>
+      </article>
+      <article class="fase-card f1">
+        <div class="fase-top"><span class="fase-etq">Fase 1</span><span class="fase-cuando">Semanas 4 a 8</span></div>
+        <h3>Afinar</h3>
+        <p>Con tus resultados en la mano empezamos por lo que tu caso pide primero: el tratamiento que corresponda —hábitos, CPAP o cirugía de nariz, según tu caso— y el entrenamiento de tu cuerpo.</p>
+        <p class="fase-recibes"><strong>Te llevas:</strong> una revaloración con tu registro de sueño y tu plan ajustado.</p>
+      </article>
+      <article class="fase-card f2">
+        <div class="fase-top"><span class="fase-etq">Fase 2</span><span class="fase-cuando">Mes 3</span></div>
+        <h3>Seguimiento</h3>
+        <p>Volvemos a medir lo que se mueve y lo comparamos contra tu punto de partida. Con eso ajustamos tus horarios, tu alimentación y, solo si un número lo justifica, tus suplementos.</p>
+        <p class="fase-recibes"><strong>Te llevas:</strong> la comparación contra tu inicio y tu documento actualizado.</p>
+      </article>
+      <article class="fase-card f3">
+        <div class="fase-top"><span class="fase-etq">Fase 3</span><span class="fase-cuando">Después de los 3 meses</span></div>
+        <h3>Mantenimiento</h3>
+        <p>Lo que ya entrenaste se sostiene. Aquí el trabajo es la respiración, la meditación y la gratitud, con la comunidad para no hacerlo solo.</p>
+        <p class="fase-recibes"><strong>Te llevas:</strong> revisiones periódicas. Si algo cambia, regresas a la fase que toque.</p>
+      </article>
+    </div>
+
+    <p class="fases-nota">Los tiempos son una guía: la fase la deciden tus datos, no el calendario. Y todo lo que te proponemos en cada fase es una recomendación: la decisión final es tuya.</p>
+  </div>
 </section>
 
 <!-- SALUD FUNCIONAL / LO QUE MEDIMOS -->
