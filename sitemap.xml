@@ -6,7 +6,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dralilipadilla.com/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
   </url>
   <url>
     <loc>https://dralilipadilla.com/agendar</loc>
@@ -19,6 +19,10 @@
   <url>
     <loc>https://dralilipadilla.com/protocolo-ser</loc>
     <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://dralilipadilla.com/ser-mujer</loc>
+    <lastmod>2026-09-13</lastmod>
   </url>
   <url>
     <loc>https://dralilipadilla.com/riviera-sleep</loc>
@@ -42,6 +46,6 @@
   </url>
   <url>
     <loc>https://dralilipadilla.com/blog/perimenopausia-y-sueno</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-09-13</lastmod>
   </url>
 </urlset>
