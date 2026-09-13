@@ -478,6 +478,21 @@ body{font-family:var(--font-sans)}
 .banda figure:hover img{transform:scale(1.03)}
 @media (max-width:640px){.banda{grid-template-columns:1fr 1fr}.banda figure:last-child{grid-column:1/-1;aspect-ratio:16/10}}
 .estudio-row{display:grid;gap:clamp(20px,3vw,44px);align-items:center;grid-template-columns:1fr}@media (min-width:760px){.estudio-row{grid-template-columns:minmax(0,480px) 1fr}}.foto-estudio{margin:0;width:100%;max-width:480px;border-radius:var(--radius-lg,20px);overflow:hidden;aspect-ratio:1/1;background:var(--navy-800)}
+
+/* mecanismo · cascada horizontal, sin sticky */
+.cascada{list-style:none;margin:0;padding:0;display:grid;gap:clamp(28px,3vw,40px);grid-template-columns:1fr;position:relative}
+.cascada-paso{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:2px solid var(--teal-500)}
+.cascada-num{font-size:var(--text-xs);font-weight:800;letter-spacing:.12em;color:var(--teal-500)}
+.cascada-titulo{font-family:var(--font-serif);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.4rem);line-height:1.2;color:var(--navy-900);margin:0}
+.cascada-texto{margin:0;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted)}
+@media (min-width:700px){.cascada{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1180px){
+  .cascada{grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(20px,2vw,32px)}
+  .cascada::before{content:"";position:absolute;left:0;right:0;top:13px;height:2px;background:linear-gradient(90deg,var(--teal-500),var(--cyan-400))}
+  .cascada-paso{border-top:0;padding-top:0;gap:12px}
+  .cascada-num{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--cream-100);border:2px solid var(--teal-500);font-size:.7rem;letter-spacing:0;margin-bottom:10px}
+  .cascada-texto{font-size:var(--text-base)}
+}
 </style>
 <header class="ser-dark hero" style="position:relative;min-height:clamp(560px,88vh,860px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy-900)">
   <div class="hero-media" style="position:absolute;inset:0;z-index:0">
@@ -523,21 +538,21 @@ body{font-family:var(--font-sans)}
   </div>
 </section>
 
-<section style="padding:clamp(72px,11vw,150px) clamp(20px,5vw,64px);background:var(--cream-100)">
-  <div style="max-width:1240px;margin:0 auto;display:grid;gap:clamp(32px,5vw,72px);grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start">
-    <div style="display:flex;flex-direction:column;gap:clamp(18px,2.2vw,26px);position:sticky;top:112px">
+<section id="mecanismo" style="padding:clamp(72px,11vw,150px) clamp(20px,5vw,64px);background:var(--cream-100)">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,5vw,64px)">
+    <div style="display:flex;flex-direction:column;gap:clamp(18px,2.2vw,26px);max-width:760px">
       <div class="ser-eyebrow" data-rv style="display:flex;align-items:center;gap:14px"><span style="width:26px;height:2px;background:var(--teal-500);flex:none"></span>El mecanismo</div>
-      <h2 data-rv style="font-family:var(--font-serif);font-weight:400;font-size:var(--fs-display-md);line-height:1.06;letter-spacing:-.02em;color:var(--navy-900);margin:0;max-width:15ch;text-wrap:balance">Lo que cambia cuando <em style="font-style:italic;color:var(--gold-500)">baja el estrógeno</em></h2>
-      <p data-rv style="margin:0;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.55;color:var(--text-muted);max-width:38ch">En México ocurre alrededor de los <strong style="color:var(--blue-700)">48 años</strong>, y la transición arranca antes. Tu cuerpo no se descompone: se reconfigura.</p>
+      <h2 data-rv style="font-family:var(--font-serif);font-weight:400;font-size:var(--fs-display-md);line-height:1.06;letter-spacing:-.02em;color:var(--navy-900);margin:0;max-width:22ch;text-wrap:balance">Lo que cambia cuando <em style="font-style:italic;color:var(--gold-500)">baja el estrógeno</em></h2>
+      <p data-rv style="margin:0;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.55;color:var(--text-muted);max-width:52ch">En México ocurre alrededor de los <strong style="color:var(--blue-700)">48 años</strong>, y la transición arranca antes. Tu cuerpo no se descompone: se reconfigura.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:clamp(26px,3.4vw,42px)">
-      <div data-rv style="display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,26px);align-items:start"><span style="font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--teal-500);padding-top:.65em">01</span><div><h3 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.2;color:var(--navy-900);margin:0 0 8px">La grasa cambia de lugar</h3><p style="margin:0;max-width:60ch;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted)">Deja de acumularse donde siempre y se va al abdomen, al compartimento visceral. Es el que más pesa en tu riesgo metabólico y cardiovascular.</p></div></div>
-      <div data-rv style="display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,26px);align-items:start"><span style="font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--teal-500);padding-top:.65em">02</span><div><h3 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.2;color:var(--navy-900);margin:0 0 8px">El músculo empieza a irse</h3><p style="margin:0;max-width:60ch;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted)">En esta ventana la masa magra comienza a declinar mientras la grasa se acelera. Es el cambio más importante y el que menos se mide.</p></div></div>
-      <div data-rv style="display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,26px);align-items:start"><span style="font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--teal-500);padding-top:.65em">03</span><div><h3 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.2;color:var(--navy-900);margin:0 0 8px">La insulina trabaja de más</h3><p style="margin:0;max-width:60ch;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted)">Baja la sensibilidad, y sobre ese terreno aparecen la dislipidemia y la inflamación.</p></div></div>
-      <div data-rv style="display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,26px);align-items:start"><span style="font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--teal-500);padding-top:.65em">04</span><div><h3 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.2;color:var(--navy-900);margin:0 0 8px">Y el sueño se rompe</h3><p style="margin:0;max-width:60ch;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted)">Por los síntomas vasomotores, sí. Pero también por algo que casi nadie te va a decir: después de la menopausia el riesgo de apnea aumenta, y en las mujeres no se ve como en los hombres.</p></div></div>
-      <div data-rv style="display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,26px);align-items:start"><span style="font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--teal-500);padding-top:.65em">05</span><div><h3 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.2;color:var(--navy-900);margin:0 0 8px">Si empezaste a roncar, eso es un dato clínico</h3><p style="margin:0;max-width:60ch;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted)">No un chiste de sobremesa. La vía aérea no duerme: si no respiras bien de noche, tu cuerpo no repara. Y el mal sueño empeora justo la resistencia a la insulina que ya venía subiendo.</p></div></div>
-      <p data-rv style="margin:0;font-family:var(--font-serif);font-weight:400;letter-spacing:-.02em;line-height:1.15;font-size:clamp(1.5rem,3.2vw,2.3rem);max-width:24ch;color:var(--navy-900);padding-top:clamp(10px,1.6vw,20px);border-top:2px solid var(--teal-500)">No son cuatro problemas separados. Es uno solo, que se alimenta de sí mismo.</p>
-    </div>
+    <ol class="cascada">
+      <li class="cascada-paso" data-rv><span class="cascada-num">01</span><h3 class="cascada-titulo">La grasa cambia de lugar</h3><p class="cascada-texto">Deja de acumularse donde siempre y se va al abdomen, al compartimento visceral. Es el que más pesa en tu riesgo metabólico y cardiovascular.</p></li>
+      <li class="cascada-paso" data-rv><span class="cascada-num">02</span><h3 class="cascada-titulo">El músculo empieza a irse</h3><p class="cascada-texto">En esta ventana la masa magra comienza a declinar mientras la grasa se acelera. Es el cambio más importante y el que menos se mide.</p></li>
+      <li class="cascada-paso" data-rv><span class="cascada-num">03</span><h3 class="cascada-titulo">La insulina trabaja de más</h3><p class="cascada-texto">Baja la sensibilidad, y sobre ese terreno aparecen la dislipidemia y la inflamación.</p></li>
+      <li class="cascada-paso" data-rv><span class="cascada-num">04</span><h3 class="cascada-titulo">Y el sueño se rompe</h3><p class="cascada-texto">Por los síntomas vasomotores, sí. Pero también por algo que casi nadie te va a decir: después de la menopausia el riesgo de apnea aumenta, y en las mujeres no se ve como en los hombres.</p></li>
+      <li class="cascada-paso" data-rv><span class="cascada-num">05</span><h3 class="cascada-titulo">Si empezaste a roncar, eso es un dato clínico</h3><p class="cascada-texto">No un chiste de sobremesa. La vía aérea no duerme: si no respiras bien de noche, tu cuerpo no repara. Y el mal sueño empeora justo la resistencia a la insulina que ya venía subiendo.</p></li>
+    </ol>
+    <p data-rv style="margin:0;font-family:var(--font-serif);font-weight:400;letter-spacing:-.02em;line-height:1.15;font-size:clamp(1.5rem,3.2vw,2.3rem);max-width:30ch;color:var(--navy-900);padding-top:clamp(10px,1.6vw,20px);border-top:2px solid var(--teal-500)">No son cuatro problemas separados. Es uno solo, que se alimenta de sí mismo.</p>
   </div>
 </section>
 
