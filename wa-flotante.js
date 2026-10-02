@@ -1,5 +1,5 @@
 /* ============================================================
-   Boton flotante de WhatsApp — solo movil
+   Botones flotantes: WhatsApp (solo movil) y "Agendar cita"
    ------------------------------------------------------------
    Va en archivo compartido y no repetido en cada pagina porque
    son 10 archivos y el numero de telefono no puede quedar en 10
@@ -67,4 +67,63 @@
     '</svg>';
 
   (document.body || document.documentElement).appendChild(a);
+
+  /* ----------------------------------------------------------
+     Boton flotante "Agendar cita" — todas las pantallas
+     ----------------------------------------------------------
+     Lleva a /consulta#calendario. Aparece al bajar un poco (el hero
+     ya tiene su propio boton) y no se muestra donde estorbaria:
+     /consulta ya es la agenda, las paginas de gracias son despues de
+     agendar y /riviera-sleep esta en ingles con su propio flujo.
+     En movil queda a la izquierda del circulo de WhatsApp. */
+  var ruta = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  var sinAgendar = /^\/(consulta|agendar|riviera-sleep|gracias[\w-]*)$/.test(ruta);
+  if (sinAgendar || document.querySelector('.agendar-flotante')) return;
+
+  var css2 = [
+    '.agendar-flotante{',
+      'position:fixed;',
+      'right:1.25rem;',
+      'bottom:calc(1.25rem + env(safe-area-inset-bottom, 0px));',
+      'z-index:90;',
+      'display:inline-flex;align-items:center;gap:.5rem;',
+      'min-height:52px;padding:0 1.4rem;',
+      'border-radius:50px;',
+      'background:#00a8a8;color:#fff;',
+      "font:600 .95rem/1 'Outfit',system-ui,sans-serif;",
+      'text-decoration:none;',
+      'box-shadow:0 8px 24px rgba(7,30,48,.28);',
+      'opacity:0;transform:translateY(16px);pointer-events:none;',
+      'transition:opacity .3s ease,transform .3s ease,background .2s;',
+      '-webkit-tap-highlight-color:transparent;',
+    '}',
+    '.agendar-flotante.is-visible{opacity:1;transform:none;pointer-events:auto;}',
+    '.agendar-flotante:hover{background:#008f8f;}',
+    '.agendar-flotante:focus-visible{outline:3px solid #3cd2dd;outline-offset:3px;}',
+    '.agendar-flotante svg{width:20px;height:20px;flex:none;}',
+    /* Movil: ocupa el ancho libre a la izquierda del boton de WhatsApp
+       (56px + 1rem de margen + 0.75rem de separacion). */
+    '@media(max-width:1024px){.agendar-flotante{left:1rem;right:calc(1rem + 56px + .75rem);justify-content:center;bottom:calc(1rem + env(safe-area-inset-bottom, 0px));min-height:56px;}}',
+    '@media(prefers-reduced-motion:reduce){.agendar-flotante{transition:none;}}',
+    '@media print{.agendar-flotante{display:none!important;}}'
+  ].join('');
+
+  var style2 = document.createElement('style');
+  style2.textContent = css2;
+  document.head.appendChild(style2);
+
+  var b = document.createElement('a');
+  b.className = 'agendar-flotante';
+  b.href = '/consulta#calendario';
+  b.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+    '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>' +
+    '<span>Agendar cita</span>';
+  (document.body || document.documentElement).appendChild(b);
+
+  function revisar() {
+    b.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.5);
+  }
+  window.addEventListener('scroll', revisar, { passive: true });
+  revisar();
 })();
