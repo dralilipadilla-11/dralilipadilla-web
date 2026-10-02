@@ -221,6 +221,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .c-faq details p { margin-top: .6rem; font-size: .93rem; color: var(--cream-2); }
 .c-faq a { color: var(--teal); font-weight: 600; }
 
+/* ── Tres puertas ─────────────────────────────────────────── */
+.c-opciones--3 { grid-template-columns: repeat(3, 1fr); }
+.c-opciones--3 .c-opcion h3 { font-size: clamp(1.35rem, 2vw, 1.6rem); }
+.c-opcion--ser { background: var(--bg); border-color: rgba(184,147,106,.5); }
+.c-botones { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+.c-botones .btn { flex: 1 1 auto; justify-content: center; width: auto; }
+.c-opcion .c-botones .btn { width: auto; }
+@media (max-width: 1000px) { .c-opciones--3 { grid-template-columns: 1fr; max-width: 620px; margin-inline: auto; } }
+
+/* ── Protocolo SER ────────────────────────────────────────── */
+.c-ser { background: var(--bg-2); }
+.c-ser-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.25rem; }
+.c-ser-incluye, .c-ser-precios { background: var(--bg); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: 2rem 1.8rem; }
+.c-ser-incluye h3 { font-size: 1.5rem; font-weight: 500; color: var(--cream); }
+.c-ser-incluye strong { color: var(--cream); font-weight: 600; }
+.c-ser-nota { font-size: .85rem; color: var(--cream-3); border-top: 1px solid var(--line-soft); padding-top: .9rem; }
+.c-ser-precio { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line-soft); }
+.c-ser-precio span { font-size: .93rem; color: var(--cream-2); }
+.c-ser-precio strong { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--cream); white-space: nowrap; }
+.c-ser-precio--dest strong { color: var(--accent); }
+.c-ser-pasos { list-style: none; counter-reset: sp; display: grid; gap: .7rem; margin: 1.4rem 0 1.5rem; }
+.c-ser-pasos li { counter-increment: sp; position: relative; padding-left: 2rem; font-size: .88rem; color: var(--cream-2); line-height: 1.55; }
+.c-ser-pasos li::before { content: counter(sp); position: absolute; left: 0; top: .05rem; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--bg-card); color: var(--teal); font-size: .75rem; font-weight: 700; display: grid; place-items: center; }
+.c-ser-pasos b { color: var(--cream); font-weight: 600; }
+.c-ser-link { text-align: center; margin-top: 1.75rem; font-size: .93rem; color: var(--cream-2); }
+.c-ser-link a { color: var(--teal); font-weight: 600; }
+@media (max-width: 860px) { .c-ser-grid { grid-template-columns: 1fr; } }
+@media (max-width: 539px) { .c-botones .btn { width: 100%; } }
+
 .footer { padding-bottom: 6rem; }
 </style>
 </head>
@@ -272,10 +301,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div>
       <p class="section-kicker">Consulta · Cancún y en línea</p>
       <h1 class="c-hero-title">Duerme y respira mejor. <em>Empieza aquí.</em></h1>
-      <p class="c-hero-lead">Otorrinolaringología y Medicina del Sueño bajo el Protocolo S·E·R. Elige si nos vemos en el consultorio o por videollamada y reserva tu horario en un minuto, sin llamadas.</p>
+      <p class="c-hero-lead">Otorrinolaringología y Medicina del Sueño en Cancún y en línea. Elige si nos vemos en el consultorio o por videollamada y reserva tu horario en un minuto, sin llamadas.</p>
       <div class="c-hero-actions">
         <a class="btn btn-primary btn-lg" href="#calendario" data-evento="presencial">Ver horarios disponibles →</a>
-        <a class="btn btn-ghost btn-lg" href="#opciones">Comparar opciones</a>
+        <a class="btn btn-ghost btn-lg" href="#opciones">¿Qué buscas hoy?</a>
       </div>
       <div class="c-hero-check">
         <span>Confirmación inmediata</span>
@@ -290,44 +319,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===================== OPCIONES ===================== -->
+<!-- ===================== TRES PUERTAS =====================
+     Regla de marca: el paciente no necesita entender el Protocolo SER para
+     agendar. "SER", "mapa" y "cuestionario" solo aparecen en la puerta 3. -->
 <section class="section" id="opciones">
   <div class="container">
     <div class="section-header center">
-      <p class="section-kicker">Elige tu consulta</p>
-      <h2 class="section-title">Dos formas de empezar, <em>el mismo criterio clínico.</em></h2>
-      <p class="section-desc">En las dos sales con un plan claro y tu siguiente paso justificado. Si no sabes cuál te toca, empieza por la consulta: de ahí sale qué estudio necesitas, si es que necesitas alguno.</p>
+      <p class="section-kicker">¿Qué buscas hoy?</p>
+      <h2 class="section-title">Tres caminos. <em>Elige el tuyo.</em></h2>
+      <p class="section-desc">No necesitas saber todo lo que te pasa para dar el primer paso. Si dudas, empieza por la consulta.</p>
     </div>
 
-    <div class="c-opciones">
+    <div class="c-opciones c-opciones--3">
       <article class="c-opcion c-opcion--destacada">
-        <p class="c-opcion-tipo">Presencial · Cancún</p>
-        <h3>Consulta Integral <em>ORL + Sueño</em></h3>
+        <p class="c-opcion-tipo">01 · Consulta</p>
+        <h3>Vengo por <em>un problema concreto</em></h3>
         <div class="c-precio">$1,500 <small>MXN · 45 min</small></div>
-        <p class="c-precio-nota">Pagas el día de tu cita: efectivo, tarjeta o Mercado Pago</p>
+        <p class="c-precio-nota">Presencial en Cancún o en línea · <span data-nota-linea>en línea, precio de lanzamiento hasta el 15 de octubre</span></p>
         <ul class="c-lista">
-          <li>Exploración de nariz, oído, garganta y vía aérea</li>
-          <li>Rinitis, sinusitis, oído tapado, amígdalas o adenoides grandes</li>
-          <li>Ronquido, sospecha de apnea, insomnio, sueño no reparador</li>
+          <li>Nariz, oído y garganta: rinitis, sinusitis, oído tapado, mareo o vértigo</li>
+          <li>Ronquido, sospecha de apnea, insomnio, cansancio</li>
           <li>Niños: ronquido, respiración por la boca, sueño inquieto</li>
+          <li>Sales con tu diagnóstico y tu plan</li>
         </ul>
-        <p class="c-lugar">Hospital Galenia Fase II, Consultorio 401-A · Mínimo 24 h de anticipación</p>
-        <a class="btn btn-primary" href="#calendario" data-evento="presencial">Agendar presencial →</a>
+        <p class="c-lugar">Puedes volver a seguimiento cuando lo necesites, también $1,500.</p>
+        <div class="c-botones">
+          <a class="btn btn-primary" href="#calendario" data-evento="presencial">Presencial →</a>
+          <a class="btn btn-ghost" href="#calendario" data-evento="linea">En línea →</a>
+        </div>
       </article>
 
       <article class="c-opcion">
-        <p class="c-opcion-tipo">En línea · Todo México</p>
-        <h3>Consulta <em>en línea</em></h3>
-        <div class="c-precio"><span data-precio-linea>$1,500</span> <small>MXN · 45 min</small></div>
-        <p class="c-precio-nota" data-nota-linea>Precio de lanzamiento hasta el 15 de octubre</p>
+        <p class="c-opcion-tipo">02 · Estudio de sueño</p>
+        <h3>Ya me indicaron <em>un estudio</em></h3>
+        <div class="c-precio">$5,000 <small>MXN · poligrafía en casa</small></div>
+        <p class="c-precio-nota">Polisomnografía tipo 2: $15,000, con noche de hotel incluida</p>
         <ul class="c-lista">
-          <li>Videollamada por Google Meet desde cualquier ciudad</li>
-          <li>Lectura de tus estudios previos y segunda opinión</li>
-          <li>Uso de CPAP y adaptación, si aplica</li>
-          <li>Datos de tu reloj o app de sueño, si los usas</li>
+          <li>Detecta apnea y alteraciones respiratorias al dormir</li>
+          <li>Interpretación por especialista en medicina del sueño</li>
+          <li>Si te refiere tu médico, el reporte también le llega</li>
         </ul>
-        <p class="c-lugar">Pago seguro con tarjeta al terminar de agendar · Mínimo 24 h de anticipación</p>
-        <a class="btn btn-primary" href="#calendario" data-evento="linea">Agendar en línea →</a>
+        <p class="c-lugar">Poligrafía: mínimo 48 h de anticipación · PSG: mínimo 72 h</p>
+        <div class="c-botones">
+          <a class="btn btn-primary" href="#calendario" data-evento="poligrafia">Poligrafía →</a>
+          <a class="btn btn-ghost" href="#calendario" data-evento="psg">Polisomnografía →</a>
+        </div>
+      </article>
+
+      <article class="c-opcion c-opcion--ser">
+        <p class="c-opcion-tipo">03 · Protocolo SER</p>
+        <h3>Quiero mejorar mi <em>salud y longevidad</em></h3>
+        <div class="c-precio"><small>desde</small> $5,000 <small>MXN</small></div>
+        <p class="c-precio-nota">Un programa aparte, por fases. Empieza con una valoración que se abona.</p>
+        <ul class="c-lista">
+          <li>Evaluación integral de tu sueño y tu respiración</li>
+          <li>Tu Mapa SER: dónde estás hoy y tu plan por fases</li>
+          <li>Para quien no viene por un síntoma, sino a conocer y sostener su sistema</li>
+        </ul>
+        <p class="c-lugar">Creado por la Dra. Lili Padilla y el Dr. Jorge Barbachano</p>
+        <div class="c-botones">
+          <a class="btn btn-primary" href="#protocolo">Ver qué incluye →</a>
+        </div>
       </article>
     </div>
   </div>
@@ -368,12 +420,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===================== COMO FUNCIONA ===================== -->
+<!-- ===================== COMO FUNCIONA (consulta) ===================== -->
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <p class="section-kicker">Cómo funciona</p>
-      <h2 class="section-title">De tu reserva a <em>tu mapa.</em></h2>
+      <p class="section-kicker">Tu consulta</p>
+      <h2 class="section-title">Así de <em>simple.</em></h2>
       <p class="section-desc">Tres pasos, sin llamadas ni esperas.</p>
     </div>
     <div class="c-pasos">
@@ -382,19 +434,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Eliges presencial o en línea y reservas aquí mismo. La confirmación te llega al correo al instante.</p>
       </div>
       <div class="c-paso">
-        <h3>Cuestionario SER</h3>
-        <p>Te enviamos por WhatsApp tu Cuestionario de Valoración SER. Llénalo con calma: es la base de tu evaluación.</p>
+        <h3>Trae lo que tengas</h3>
+        <p>Estudios previos, la lista de tus medicamentos y los datos de tu reloj o app de sueño si los usas. Todo suma.</p>
       </div>
       <div class="c-paso">
-        <h3>Consulta y plan</h3>
-        <p>Revisamos tu sueño y tu respiración. Sales con un mapa clínico claro y tu siguiente paso justificado.</p>
+        <h3>Diagnóstico y plan</h3>
+        <p>Te exploro, te explico qué está pasando y sales con tu plan y tu siguiente paso justificado.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===================== PROTOCOLO SER ===================== -->
+<section class="section c-ser" id="protocolo">
+  <div class="container">
+    <div class="section-header center">
+      <p class="section-kicker">Protocolo S·E·R · Sueño, Equilibrio y Respiración</p>
+      <h2 class="section-title">Longevidad desde <em>tu sueño.</em></h2>
+      <p class="section-desc">Un programa aparte de la consulta, para quien quiere conocer su sistema completo y sostenerlo en el tiempo. No es un tratamiento que recibes: es un programa que entrenas, siempre acompañado.</p>
+    </div>
+
+    <div class="c-ser-grid">
+      <div class="c-ser-incluye">
+        <h3>Qué incluye</h3>
+        <ul class="c-lista">
+          <li>Cuestionario de Valoración SER</li>
+          <li>Valoración por especialista en sueño y en vía aérea</li>
+          <li>Revisión de los estudios y laboratorios que ya tienes: nos interesa conocer todos tus datos</li>
+          <li>Indicación de los biomarcadores de laboratorio que tu caso necesita</li>
+          <li>Entrega de resultados con tu <strong>Mapa SER</strong>: tu edad metabólica frente a tu edad real, dónde estás hoy en cada pilar y tu plan por fases, metabólico y funcional</li>
+        </ul>
+        <p class="c-ser-nota">El laboratorio se paga aparte, directo en el laboratorio, y se indica según tu caso.</p>
+      </div>
+
+      <div class="c-ser-precios">
+        <div class="c-ser-precio">
+          <span>Sin estudio de sueño</span>
+          <strong>$5,000</strong>
+        </div>
+        <div class="c-ser-precio c-ser-precio--dest">
+          <span>Con poligrafía en casa</span>
+          <strong>$10,000</strong>
+        </div>
+        <div class="c-ser-precio">
+          <span>Con polisomnografía tipo 2</span>
+          <strong>$20,000</strong>
+        </div>
+        <ol class="c-ser-pasos">
+          <li><b>Valoración previa · $1,500.</b> Vemos juntos si el programa es para ti. Si entras, se abona a tu paquete.</li>
+          <li><b>Tu Mapa SER.</b> Con tus datos integrados, te entregamos tus resultados y tu plan.</li>
+          <li><b>Fases de seguimiento · $1,500 cada consulta,</b> en línea o presencial. Se vuelve a medir para comparar contra tu inicio.</li>
+        </ol>
+        <div class="c-botones">
+          <a class="btn btn-primary" href="#calendario" data-evento="presencial">Agendar valoración →</a>
+          <a class="btn btn-ghost" href="https://wa.me/529981516161?text=Hola%20Dra.%20Lili%2C%20quiero%20saber%20m%C3%A1s%20del%20Protocolo%20SER" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <p class="c-ser-link">¿Quieres conocer el método completo? <a href="/protocolo-ser">Así funciona el Protocolo S·E·R →</a></p>
+  </div>
+</section>
+
 <!-- ===================== ESTUDIOS ===================== -->
-<section class="section" style="padding-top:0">
+<section class="section" id="estudios">
   <div class="container">
     <div class="section-header center">
       <p class="section-kicker">Estudios de sueño</p>
@@ -474,12 +576,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Si vives en Cancún o tienes síntomas de nariz, oído o garganta, elige presencial: la exploración de la vía aérea es parte central de la consulta. Si vives en otra ciudad, ya tienes estudios o buscas una segunda opinión, la consulta en línea es un muy buen primer paso.</p>
       </details>
       <details>
+        <summary>¿Tengo que entrar al Protocolo SER?</summary>
+        <p>No. La consulta es completa por sí misma: vienes, te valoro y sales con tu diagnóstico y tu plan. Puedes volver a seguimiento las veces que lo necesites. El Protocolo SER es un programa aparte, para quien busca una evaluación integral de su sueño y su longevidad.</p>
+      </details>
+      <details>
+        <summary>¿Qué diferencia hay entre una consulta y el Protocolo SER?</summary>
+        <p>La consulta resuelve lo que hoy te trae. El Protocolo SER integra tu sueño, tu respiración, tus biomarcadores y tu historia en un Mapa SER con un plan por fases, y vuelve a medir para comparar contra tu inicio.</p>
+      </details>
+      <details>
         <summary>¿Atienden niños?</summary>
         <p>Sí. Ronquido, respiración por la boca, sueño inquieto o cansancio de día son señales que vale la pena revisar a tiempo. Elige la consulta presencial.</p>
       </details>
       <details>
         <summary>¿Cómo pago?</summary>
-        <p>Presencial: el día de tu cita, en efectivo, tarjeta o Mercado Pago. En línea: con tarjeta por Stripe al terminar de agendar; tu cita queda confirmada cuando entra el pago.</p>
+        <p>Presencial: el día de tu cita, en efectivo, tarjeta o Mercado Pago. En línea: con tarjeta por Stripe al terminar de agendar; tu cita queda confirmada cuando entra el pago. Si agendaste tu valoración del Protocolo SER y entras al programa, lo que pagaste se abona a tu paquete.</p>
       </details>
       <details>
         <summary>¿Puedo reagendar o cancelar?</summary>
@@ -488,6 +598,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <details>
         <summary>¿Qué llevo a mi consulta?</summary>
         <p>Estudios previos (poligrafía, polisomnografía, laboratorios, imagen), la lista de tus medicamentos y suplementos, y los datos de tu reloj o app de sueño si los usas. Si alguien te ve dormir, pregúntale si roncas o haces pausas al respirar: ese testimonio vale oro.</p>
+      </details>
+      <details>
+        <summary>¿El laboratorio está incluido en el Protocolo SER?</summary>
+        <p>No. Te indicamos los biomarcadores que tu caso necesita y los pagas directo en el laboratorio. Si ya tienes estudios recientes, los revisamos para no repetir lo que no hace falta.</p>
+      </details>
+      <details>
+        <summary>¿Usan inteligencia artificial?</summary>
+        <p>Usamos herramientas digitales, incluida la inteligencia artificial, para organizar e integrar todos tus datos, y así hacer una evaluación más completa. La interpretación y cada decisión clínica son siempre de tus médicos, y tus datos se cuidan conforme a nuestro <a href="/privacidad">aviso de privacidad</a>.</p>
       </details>
       <details>
         <summary>¿Cómo pido mi factura?</summary>
@@ -560,7 +678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var BASE = 'https://calendly.com/dralilianapadilla/';
   var EVENTOS = {
     presencial: { url: BASE + 'consulta-otorrinolaringologia',
-                  info: 'Consulta Integral ORL + Sueño · Presencial en Hospital Galenia · $1,500 MXN' },
+                  info: 'Consulta · Otorrino y Sueño · Presencial en Hospital Galenia · $1,500 MXN' },
     linea:      { url: BASE + 'teleconsulta-especializada-dra-lili-padilla',
                   info: 'Consulta en línea por Google Meet · Pago con tarjeta al terminar de agendar' },
     poligrafia: { url: BASE + 'poligrafia',
@@ -575,10 +693,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   /* Precio de la consulta en linea: $1,800 desde el 16 de octubre de 2026. */
   if (new Date() >= new Date('2026-10-16T00:00:00-05:00')) {
-    var p = document.querySelector('[data-precio-linea]');
     var n = document.querySelector('[data-nota-linea]');
-    if (p) p.textContent = '$1,800';
-    if (n) n.textContent = 'Google Meet · desde cualquier ciudad de México';
+    if (n) n.textContent = 'en línea $1,800';
   }
 
   var w = document.getElementById('calendly-widget');
