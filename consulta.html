@@ -335,7 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="c-opcion-tipo">01 · Consulta</p>
         <h3>Vengo por <em>un problema concreto</em></h3>
         <div class="c-precio">$1,500 <small>MXN · 45 min</small></div>
-        <p class="c-precio-nota">Presencial en Cancún o en línea · <span data-nota-linea>en línea, precio de lanzamiento hasta el 15 de octubre</span></p>
+        <p class="c-precio-nota">Presencial en Cancún · en línea <b>$100 USD</b></p>
         <ul class="c-lista">
           <li>Nariz, oído y garganta: rinitis, sinusitis, oído tapado, mareo o vértigo</li>
           <li>Ronquido, sospecha de apnea, insomnio, cansancio</li>
@@ -680,7 +680,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     presencial: { url: BASE + 'consulta-otorrinolaringologia',
                   info: 'Consulta · Otorrino y Sueño · Presencial en Hospital Galenia · $1,500 MXN' },
     linea:      { url: BASE + 'teleconsulta-especializada-dra-lili-padilla',
-                  info: 'Consulta en línea por Google Meet · Pago con tarjeta al terminar de agendar' },
+                  info: 'Consulta en línea por Google Meet · $100 USD con tarjeta al agendar' },
     poligrafia: { url: BASE + 'poligrafia',
                   info: 'Poligrafía a domicilio · Reservas tu noche y recoges el equipo ese día de 4 a 8 pm' },
     psg:        { url: BASE + 'polisomnografia',
@@ -690,12 +690,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      primario se fuerza al teal de marca. utm_* deja ver en Calendly que la
      cita vino de esta pagina. */
   var PARAMS = '?hide_gdpr_banner=1&primary_color=00a8a8&text_color=2a3d4e&utm_source=web&utm_medium=consulta&utm_campaign=';
-
-  /* Precio de la consulta en linea: $1,800 desde el 16 de octubre de 2026. */
-  if (new Date() >= new Date('2026-10-16T00:00:00-05:00')) {
-    var n = document.querySelector('[data-nota-linea]');
-    if (n) n.textContent = 'en línea $1,800';
-  }
 
   var w = document.getElementById('calendly-widget');
   var info = document.getElementById('tab-info');
