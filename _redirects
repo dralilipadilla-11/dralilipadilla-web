@@ -28,6 +28,11 @@ https://loquacious-syrniki-d4e257.netlify.app/*  https://dralilipadilla.com/:spl
 /gracias-consulta-en-linea.html  /gracias-consulta-en-linea  301!
 /gracias-riviera.html         /gracias-riviera         301!
 
+# Alias del Riviera Sleep Program que se compartieron por mensaje.
+/rivierasleepprogram       /riviera-sleep        301!
+/riviera-sleep-program     /riviera-sleep        301!
+/rivierasleep              /riviera-sleep        301!
+
 # Blog. Misma regla que arriba, una linea por archivo: Netlify no permite
 # quitar el .html con un splat (/blog/* captura "slug.html" completo, sin
 # forma de recortar la extension), asi que se listan a mano igual que el
